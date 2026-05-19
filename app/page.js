@@ -78,7 +78,7 @@ const fadeUp = {
 
 export default function IconovousHomepage() {
   return (
-    <main className="min-h-screen bg-slate-950 text-white overflow-hidden bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:70px_70px]">
+    <main className="min-h-screen overflow-hidden bg-slate-950 text-white">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-32 -left-32 h-96 w-96 rounded-full bg-blue-600/30 blur-3xl" />
         <div className="absolute top-80 -right-32 h-96 w-96 rounded-full bg-cyan-400/20 blur-3xl" />
@@ -122,11 +122,11 @@ export default function IconovousHomepage() {
           </div>
 
           <h1 className="max-w-5xl bg-gradient-to-r from-white via-cyan-100 to-cyan-300 bg-clip-text text-4xl font-black leading-tight tracking-tight text-transparent sm:text-6xl lg:text-7xl">
-            Transforming businesses through intelligent technology solutions.
+            Engineering the future of enterprise technology and digital transformation.
           </h1>
 
           <p className="mt-6 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
-            ICONOVOUS Holdings Limited helps organizations design, build, manage, secure, and scale digital systems through IT management, consulting, software development, DevOps, cloud management, cybersecurity, and AI-powered automation.
+            ICONOVOUS Holdings Limited delivers enterprise-grade IT consulting, cloud infrastructure, software engineering, DevOps, cybersecurity, AI automation, and digital transformation solutions for modern organizations seeking scalability, security, and operational excellence.
           </p>
 
           <div className="mt-8 flex flex-col gap-4 sm:flex-row">
@@ -181,6 +181,33 @@ export default function IconovousHomepage() {
               </div>
             </div>
           </div>
+          <div className="absolute -left-10 top-10 hidden rounded-2xl border border-cyan-300/20 bg-white/[0.08] p-4 shadow-2xl backdrop-blur-xl lg:block">
+  <p className="text-xs font-semibold uppercase tracking-widest text-cyan-300">
+    Cloud Infrastructure
+  </p>
+
+  <h3 className="mt-2 text-2xl font-black">99.99%</h3>
+
+  <p className="mt-1 text-sm text-slate-300">
+    Enterprise Uptime
+  </p>
+</div>
+
+<div className="absolute -right-8 bottom-10 hidden rounded-2xl border border-white/10 bg-slate-900/90 p-5 shadow-2xl backdrop-blur-xl lg:block">
+  <div className="flex items-center gap-3">
+    <div className="h-3 w-3 rounded-full bg-emerald-400" />
+
+    <span className="text-sm font-semibold text-slate-200">
+      Systems Operational
+    </span>
+  </div>
+
+  <div className="mt-4 flex gap-2">
+    <div className="h-2 w-16 rounded-full bg-cyan-300" />
+    <div className="h-2 w-10 rounded-full bg-blue-500" />
+    <div className="h-2 w-6 rounded-full bg-violet-500" />
+  </div>
+</div>
         </motion.div>
       </section>
 
@@ -287,10 +314,59 @@ export default function IconovousHomepage() {
               <h2 className="text-3xl font-black sm:text-5xl">Ready to build, manage, or scale your next technology solution?</h2>
               <p className="mt-5 max-w-3xl text-lg font-medium text-slate-800">Partner with ICONOVOUS Holdings Limited for world-class IT consulting, development, DevOps, cloud, cybersecurity, and managed technology services.</p>
             </div>
-            <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
-              <a href="mailto:info@iconovous.com" className="inline-flex items-center justify-center rounded-full bg-slate-950 px-7 py-4 font-black text-white transition hover:bg-white hover:text-slate-950">Email ICONOVOUS</a>
-              <a href="tel:+2348167802629" className="inline-flex items-center justify-center rounded-full border-2 border-slate-950 px-7 py-4 font-black text-slate-950 transition hover:bg-slate-950 hover:text-white">Call Now</a>
-            </div>
+            <form
+  className="flex flex-col gap-4"
+  onSubmit={async (e) => {
+    e.preventDefault();
+
+    const formData = {
+      name: e.target.name.value,
+      email: e.target.email.value,
+      message: e.target.message.value,
+    };
+
+    await fetch("/api/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
+
+    alert("Message sent successfully");
+    e.target.reset();
+  }}
+>
+  <input
+    name="name"
+    placeholder="Your Name"
+    required
+    className="rounded-xl border border-white/20 bg-white px-4 py-3 text-black outline-none"
+  />
+
+  <input
+    name="email"
+    type="email"
+    placeholder="Your Email"
+    required
+    className="rounded-xl border border-white/20 bg-white px-4 py-3 text-black outline-none"
+  />
+
+  <textarea
+    name="message"
+    placeholder="Your Message"
+    required
+    rows="5"
+    className="rounded-xl border border-white/20 bg-white px-4 py-3 text-black outline-none"
+  />
+
+  <button
+    type="submit"
+    className="rounded-xl bg-slate-950 px-6 py-4 font-black text-white transition hover:bg-white hover:text-slate-950"
+  >
+    Send Message
+  </button>
+</form>
           </div>
         </div>
       </section>
