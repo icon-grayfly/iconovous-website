@@ -81,10 +81,14 @@ export default function IconovousHomepage() {
   return (
     <main className="min-h-screen overflow-hidden bg-slate-950 text-white">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-32 -left-32 h-96 w-96 rounded-full bg-blue-600/30 blur-3xl" />
-        <div className="absolute top-80 -right-32 h-96 w-96 rounded-full bg-cyan-400/20 blur-3xl" />
-        <div className="absolute bottom-40 left-1/3 h-96 w-96 rounded-full bg-violet-600/20 blur-3xl" />
-      </div>
+        <div className="absolute top-0 left-1/2 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-cyan-500/20 blur-[120px]" />
+
+        <div className="absolute left-0 top-40 h-[350px] w-[350px] rounded-full bg-blue-600/20 blur-[100px]" />
+
+        <div className="absolute bottom-0 right-0 h-[450px] w-[450px] rounded-full bg-violet-600/20 blur-[120px]" />
+
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.04),transparent_60%)]" />
+    </div>
 
       <header className="relative z-20 border-b border-white/10 bg-slate-950/70 backdrop-blur-xl sticky top-0">
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-5 sm:px-6 lg:px-8">
@@ -123,7 +127,7 @@ export default function IconovousHomepage() {
             Enterprise IT • Cloud • DevOps • Software • AI
           </div>
 
-          <h1 className="max-w-5xl bg-gradient-to-r from-white via-cyan-100 to-cyan-300 bg-clip-text text-4xl font-black leading-tight tracking-tight text-transparent sm:text-6xl lg:text-7xl">
+          <h1 className="max-w-5xl bg-gradient-to-r from-white via-cyan-100 to-cyan-300 bg-clip-text text-4xl font-extrabold leading-tight tracking-tight text-transparent sm:text-6xl lg:text-7xl">
             Engineering the future of enterprise technology and digital transformation.
           </h1>
 
@@ -147,7 +151,7 @@ export default function IconovousHomepage() {
               <div className="mb-5 flex items-center justify-between">
                 <div>
                   <p className="text-sm text-slate-400">ICONOVOUS Command Centre</p>
-                  <h3 className="text-xl font-black">Technology Operations Dashboard</h3>
+                  <h3 className="text-xl font-extrabold">Technology Operations Dashboard</h3>
                 </div>
                 <div className="rounded-full bg-emerald-400/15 px-3 py-1 text-xs font-bold text-emerald-300">Live</div>
               </div>
@@ -162,7 +166,7 @@ export default function IconovousHomepage() {
                   <div key={String(label)} className="rounded-2xl border border-white/10 bg-white/[0.04] p-4">
                     <Icon className="mb-4 h-7 w-7 text-cyan-300" />
                     <p className="text-sm text-slate-400">{label}</p>
-                    <p className="text-3xl font-black">{value}</p>
+                    <p className="text-3xl font-extrabold">{value}</p>
                   </div>
                 ))}
               </div>
@@ -188,7 +192,7 @@ export default function IconovousHomepage() {
     Cloud Infrastructure
   </p>
 
-  <h3 className="mt-2 text-2xl font-black">99.99%</h3>
+  <h3 className="mt-2 text-2xl font-extrabold">99.99%</h3>
 
   <p className="mt-1 text-sm text-slate-300">
     Enterprise Uptime
@@ -218,7 +222,7 @@ export default function IconovousHomepage() {
           <p className="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-cyan-300">
             Technology Ecosystem
           </p>
-          <h2 className="text-3xl font-black sm:text-5xl">
+          <h2 className="text-3xl font-extrabold sm:text-5xl">
             Built with modern enterprise technologies.
           </h2>
         </div>
@@ -228,7 +232,7 @@ export default function IconovousHomepage() {
             <motion.div
               key={tech}
               whileHover={{ y: -5, scale: 1.05 }}
-              className="rounded-full border border-white/10 bg-white/[0.05] px-6 py-3 text-sm font-bold tracking-wide text-slate-200 shadow-lg backdrop-blur transition hover:border-cyan-300 hover:text-cyan-300"
+              className="rounded-full border border-white/10 bg-white/[0.04] px-6 py-3 text-sm font-extrabold tracking-wide text-slate-200 shadow-lg backdrop-blur transition hover:border-cyan-300 hover:text-cyan-300"
             >
               {tech}
             </motion.div>
@@ -244,7 +248,7 @@ export default function IconovousHomepage() {
               whileHover={{ y: -6 }}
               className="rounded-3xl border border-white/10 bg-slate-950/70 p-6 text-center shadow-xl"
             >
-              <h3 className="bg-gradient-to-r from-cyan-200 to-cyan-400 bg-clip-text text-4xl font-black text-transparent">
+              <h3 className="bg-gradient-to-r from-cyan-200 to-cyan-400 bg-clip-text text-4xl font-extrabold text-transparent">
                 {stat.value}
               </h3>
               <p className="mt-3 text-sm font-semibold tracking-wide text-slate-300">
@@ -255,18 +259,65 @@ export default function IconovousHomepage() {
         </div>
       </section>
 
+<section className="relative z-10 border-y border-white/10 bg-white/[0.03] backdrop-blur-xl">
+  <div className="mx-auto flex max-w-7xl flex-col gap-8 px-4 py-8 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
+
+    <div>
+      <p className="text-sm uppercase tracking-[0.25em] text-cyan-300">
+        Enterprise Capabilities
+      </p>
+
+      <h3 className="mt-2 text-2xl font-extrabold">
+        Scalable technology systems built for modern organizations.
+      </h3>
+    </div>
+
+    <div className="grid grid-cols-2 gap-6 sm:grid-cols-4">
+
+      <div>
+        <p className="text-3xl font-extrabold text-cyan-300">99.99%</p>
+        <p className="mt-1 text-sm text-slate-400">
+          Infrastructure Reliability
+        </p>
+      </div>
+
+      <div>
+        <p className="text-3xl font-extrabold text-cyan-300">24/7</p>
+        <p className="mt-1 text-sm text-slate-400">
+          Technical Support
+        </p>
+      </div>
+
+      <div>
+        <p className="text-3xl font-extrabold text-cyan-300">AI</p>
+        <p className="mt-1 text-sm text-slate-400">
+          Intelligent Automation
+        </p>
+      </div>
+
+      <div>
+        <p className="text-3xl font-extrabold text-cyan-300">Cloud</p>
+        <p className="mt-1 text-sm text-slate-400">
+          DevOps Infrastructure
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
       <section id="services" className="relative z-10 mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
         <div className="mb-10 max-w-3xl">
           <p className="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-cyan-300">Our Services</p>
-          <h2 className="text-3xl font-black tracking-tight sm:text-5xl">Complete IT solutions for modern organizations.</h2>
+          <h2 className="text-3xl font-extrabold tracking-tight sm:text-5xl">Complete IT solutions for modern organizations.</h2>
           <p className="mt-4 text-slate-300">From consulting to deployment and continuous management, ICONOVOUS provides the technical backbone businesses need to operate securely and grow confidently.</p>
         </div>
 
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service) => (
-            <motion.div key={service.title} whileHover={{ y: -10, scale: 1.02 }} transition={{ duration: 0.3 }} className="group relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-white/[0.08] to-white/[0.03] p-7 shadow-2xl backdrop-blur transition hover:border-cyan-300/40 hover:shadow-cyan-500/10"><div className="absolute inset-0 opacity-0 transition duration-500 group-hover:opacity-100 bg-[radial-gradient(circle_at_top,rgba(34,211,238,0.18),transparent_55%)]" />
+            <motion.div key={service.title} whileHover={{ y: -10, scale: 1.02 }} transition={{ duration: 0.3 }} className="group relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-white/[0.08] to-white/[0.03] p-7 shadow-2xl backdrop-blur-xl transition hover:border-cyan-300/40 hover:shadow-cyan-500/10"><div className="absolute inset-0 opacity-0 transition duration-500 group-hover:opacity-100 bg-[radial-gradient(circle_at_top,rgba(34,211,238,0.18),transparent_55%)]" />
               <service.icon className="mb-6 h-10 w-10 text-cyan-300" />
-              <h3 className="text-xl font-black">{service.title}</h3>
+              <h3 className="text-xl font-extrabold">{service.title}</h3>
               <p className="mt-3 leading-7 text-slate-300">{service.text}</p>
             </motion.div>
           ))}
@@ -274,10 +325,10 @@ export default function IconovousHomepage() {
       </section>
 
       <section id="solutions" className="relative z-10 mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid gap-8 rounded-[2rem] border border-white/10 bg-white/[0.06] p-6 backdrop-blur lg:grid-cols-2 lg:p-10">
+        <div className="grid gap-8 rounded-[2rem] border border-white/10 bg-white/[0.06] p-6 backdrop-blur-xl lg:grid-cols-2 lg:p-10">
           <div>
             <p className="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-cyan-300">Why ICONOVOUS</p>
-            <h2 className="text-3xl font-black sm:text-5xl">Built for performance, security, and business growth.</h2>
+            <h2 className="text-3xl font-extrabold sm:text-5xl">Built for performance, security, and business growth.</h2>
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
             {["Security-first delivery", "Cloud-ready architecture", "Scalable development", "Professional IT governance", "Business-focused consulting", "Reliable support culture"].map((item) => (
@@ -294,7 +345,7 @@ export default function IconovousHomepage() {
         <div className="mb-10 flex flex-col justify-between gap-4 lg:flex-row lg:items-end">
           <div>
             <p className="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-cyan-300">Industries</p>
-            <h2 className="text-3xl font-black sm:text-5xl">Technology support across sectors.</h2>
+            <h2 className="text-3xl font-extrabold sm:text-5xl">Technology support across sectors.</h2>
           </div>
           <p className="max-w-xl text-slate-300">We help organizations improve operations, build digital platforms, automate workflows, and strengthen technology infrastructure.</p>
         </div>
@@ -313,7 +364,7 @@ export default function IconovousHomepage() {
         <div className="rounded-[2.5rem] bg-gradient-to-br from-cyan-300 to-blue-500 p-8 text-slate-950 shadow-2xl shadow-cyan-500/20 sm:p-12 lg:p-16">
           <div className="grid gap-8 lg:grid-cols-[1.3fr_0.7fr] lg:items-center">
             <div>
-              <h2 className="text-3xl font-black sm:text-5xl">Ready to build, manage, or scale your next technology solution?</h2>
+              <h2 className="text-3xl font-extrabold sm:text-5xl">Ready to build, manage, or scale your next technology solution?</h2>
               <p className="mt-5 max-w-3xl text-lg font-medium text-slate-800">Partner with ICONOVOUS Holdings Limited for world-class IT consulting, development, DevOps, cloud, cybersecurity, and managed technology services.</p>
             </div>
             <form
@@ -364,7 +415,7 @@ export default function IconovousHomepage() {
 
   <button
     type="submit"
-    className="rounded-xl bg-slate-950 px-6 py-4 font-black text-white transition hover:bg-white hover:text-slate-950"
+    className="rounded-xl bg-slate-950 px-6 py-4 font-extrabold text-white transition hover:bg-white hover:text-slate-950"
   >
     Send Message
   </button>
@@ -380,7 +431,7 @@ export default function IconovousHomepage() {
               <p className="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-cyan-300">
                 Trusted Technology Partner
               </p>
-              <h2 className="max-w-3xl text-3xl font-black leading-tight sm:text-4xl">
+              <h2 className="max-w-3xl text-3xl font-extrabold leading-tight sm:text-4xl">
                 Enterprise-grade solutions engineered for growth and innovation.
               </h2>
             </div>
@@ -388,14 +439,14 @@ export default function IconovousHomepage() {
             <div className="flex flex-col gap-4 sm:flex-row">
               <a
                 href="#contact"
-                className="inline-flex items-center justify-center rounded-full bg-cyan-300 px-7 py-4 font-black text-slate-950 transition hover:bg-white"
+                className="inline-flex items-center justify-center rounded-full bg-cyan-300 px-7 py-4 font-extrabold text-slate-950 transition hover:bg-white"
               >
                 Schedule Consultation
               </a>
 
               <a
                 href="#services"
-                className="inline-flex items-center justify-center rounded-full border border-white/15 px-7 py-4 font-black text-white transition hover:border-cyan-300 hover:text-cyan-300"
+                className="inline-flex items-center justify-center rounded-full border border-white/15 px-7 py-4 font-extrabold text-white transition hover:border-cyan-300 hover:text-cyan-300"
               >
                 Explore Solutions
               </a>
