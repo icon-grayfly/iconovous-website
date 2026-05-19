@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";
 import {
@@ -87,15 +88,16 @@ export default function IconovousHomepage() {
 
       <header className="relative z-20 border-b border-white/10 bg-slate-950/70 backdrop-blur-xl sticky top-0">
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-5 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-3">
-            <div className="grid h-11 w-11 place-items-center rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-300 shadow-lg shadow-blue-500/25">
-              <Globe2 className="h-6 w-6 text-slate-950" />
+          <div className="flex items-center">
+            <Image
+                src="/logo-dark.png"
+                alt="ICONOVOUS Holdings Limited"
+                width={220}
+                height={70}
+                priority
+                className="h-auto w-[170px] sm:w-[210px]"
+                />
             </div>
-            <div>
-              <p className="text-lg font-black tracking-tight">ICONOVOUS</p>
-              <p className="text-xs text-cyan-200">Holdings Limited</p>
-            </div>
-          </div>
 
           <div className="hidden items-center gap-8 text-sm text-slate-200 lg:flex">
             <a href="#services" className="hover:text-cyan-300">Services</a>
