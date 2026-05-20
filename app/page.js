@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
-import React from "react";
+import Link from "next/link";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import {
   Cloud,
@@ -16,6 +17,13 @@ import {
   Layers3,
   Building2,
 } from "lucide-react";
+
+import {
+  FaInstagram,
+  FaLinkedin,
+  FaYoutube,
+  FaWhatsapp,
+} from "react-icons/fa";
 
 const services = [
   {
@@ -78,8 +86,14 @@ const fadeUp = {
 };
 
 export default function IconovousHomepage() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const [loading, setLoading] = useState(false);
+  const currentYear = 2026;
   return (
     <main className="min-h-screen overflow-hidden bg-slate-950 text-white">
+
+{/* ================= BACKGROUND EFFECTS ================= */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-0 left-1/2 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-cyan-500/20 blur-[120px]" />
 
@@ -90,21 +104,29 @@ export default function IconovousHomepage() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.04),transparent_60%)]" />
     </div>
 
-      <header className="relative z-20 border-b border-white/10 bg-slate-950/70 backdrop-blur-xl sticky top-0">
+{/* ================= HEADER / NAVIGATION ================= */}
+      <header className="sticky top-0 relative z-20 border-b border-white/10 bg-slate-950/80 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-xl">
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-5 sm:px-6 lg:px-8">
           <div className="flex items-center">
+            <Link 
+                href="/" 
+                className="group transition duration-300">
             <Image
                 src="/logo-dark.png"
                 alt="ICONOVOUS Holdings Limited"
                 width={220}
                 height={70}
                 priority
-                className="h-auto w-[170px] sm:w-[210px]"
+                className="h-auto w-[170px] sm:w-[210px] transition duration-300 group-hover:scale-[1.04] group-hover:brightness-110"
                 />
+            </Link>
             </div>
 
           <div className="hidden items-center gap-8 text-sm text-slate-200 lg:flex">
-            <a href="#services" className="hover:text-cyan-300">Services</a>
+            <a
+  href="#services"
+  className="transition hover:text-cyan-300"
+>Services</a>
             <a href="#solutions" className="hover:text-cyan-300">Solutions</a>
             <a href="#industries" className="hover:text-cyan-300">Industries</a>
             <a href="#contact" className="hover:text-cyan-300">Contact</a>
@@ -114,12 +136,60 @@ export default function IconovousHomepage() {
             Book Consultation
           </a>
 
-          <button className="rounded-xl border border-white/10 bg-white/[0.04] p-2 transition hover:border-cyan-300 hover:bg-cyan-300/10 lg:hidden">
-            <Menu className="h-6 w-6" />
+          <button
+  aria-label="Toggle Menu"
+  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+  className="rounded-xl border border-white/10 bg-white/[0.04] p-2 transition hover:border-cyan-300 lg:hidden"
+>
+            <Menu
+                className={`h-6 w-6 transition-transform duration-300 ${
+                mobileMenuOpen ? "rotate-90" : ""
+              }`}
+            />
           </button>
         </nav>
-      </header>
+        {mobileMenuOpen && (
+  <div className="border-t border-white/10 bg-slate-950/95 px-6 py-6 backdrop-blur-xl lg:hidden">
+    <div className="flex flex-col gap-5 text-lg font-semibold text-white">
 
+      <a
+        href="#services"
+        onClick={() => setMobileMenuOpen(false)}
+        className="transition hover:text-cyan-300"
+      >
+        Services
+      </a>
+
+      <a
+        href="#solutions"
+        onClick={() => setMobileMenuOpen(false)}
+        className="transition hover:text-cyan-300"
+      >
+        Solutions
+      </a>
+
+      <a
+        href="#industries"
+        onClick={() => setMobileMenuOpen(false)}
+        className="transition hover:text-cyan-300"
+      >
+        Industries
+      </a>
+
+      <a
+        href="#contact"
+        onClick={() => setMobileMenuOpen(false)}
+        className="transition hover:text-cyan-300"
+      >
+        Contact
+      </a>
+
+    </div>
+  </div>
+)}
+      </header>
+      
+{/* ================= HERO SECTION ================= */}
       <section className="relative z-10 mx-auto grid max-w-7xl items-center gap-16 px-4 py-24 sm:px-6 lg:grid-cols-2 lg:px-8 lg:py-32">
         <motion.div initial="hidden" animate="visible" variants={fadeUp} transition={{ duration: 0.7 }}>
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-cyan-300/30 bg-cyan-300/10 px-4 py-2 text-sm text-cyan-100">
@@ -127,16 +197,16 @@ export default function IconovousHomepage() {
             Enterprise IT • Cloud • DevOps • Software • AI
           </div>
 
-          <h1 className="max-w-5xl bg-gradient-to-r from-white via-cyan-100 to-cyan-300 bg-clip-text text-4xl font-extrabold leading-tight tracking-tight text-transparent sm:text-6xl lg:text-7xl">
+          <h1 className="max-w-4xl bg-gradient-to-r from-white via-cyan-100 to-cyan-300 bg-clip-text text-4xl font-extrabold leading-tight tracking-tight text-transparent sm:text-6xl lg:text-7xl">
             Engineering the future of enterprise technology and digital transformation.
           </h1>
 
-          <p className="mt-6 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
+          <p className="mt-6 max-w-2xl text-base leading-8 text-slate-200 sm:text-lg">
             ICONOVOUS Holdings Limited delivers enterprise-grade IT consulting, cloud infrastructure, software engineering, DevOps, cybersecurity, AI automation, and digital transformation solutions for modern organizations seeking scalability, security, and operational excellence.
           </p>
 
           <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-            <a href="#contact" className="inline-flex items-center justify-center gap-2 rounded-full bg-cyan-300 px-7 py-4 font-bold text-slate-950 shadow-xl shadow-cyan-500/20 transition hover:bg-white">
+            <a href="#contact" className="inline-flex items-center justify-center gap-2 rounded-full bg-cyan-300 px-7 py-4 font-bold text-slate-950 shadow-xl shadow-cyan-500/20 transition hover:scale-[1.03] hover:bg-white active:scale-95">
               Start a Project <ArrowRight className="h-5 w-5" />
             </a>
             <a href="#services" className="inline-flex items-center justify-center rounded-full border border-white/15 px-7 py-4 font-bold text-white transition hover:border-cyan-300 hover:text-cyan-200">
@@ -217,7 +287,10 @@ export default function IconovousHomepage() {
         </motion.div>
       </section>
 
-      <section className="relative z-10 mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+      <section
+        id="technologies"
+        className="relative z-10 mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8"
+      >
         <div className="mb-10 text-center">
           <p className="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-cyan-300">
             Technology Ecosystem
@@ -240,7 +313,10 @@ export default function IconovousHomepage() {
         </div>
       </section>
 
-      <section className="relative z-10 mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+      <section
+        id="stats"
+        className="relative z-10 mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8"
+      >
         <div className="grid gap-5 rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 backdrop-blur-xl sm:grid-cols-2 lg:grid-cols-4 lg:p-8">
           {stats.map((stat) => (
             <motion.div
@@ -324,7 +400,7 @@ export default function IconovousHomepage() {
         </div>
       </section>
 
-      <section id="solutions" className="relative z-10 mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+      <section id="solutions" className="relative z-10 mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
         <div className="grid gap-8 rounded-[2rem] border border-white/10 bg-white/[0.06] p-6 backdrop-blur-xl lg:grid-cols-2 lg:p-10">
           <div>
             <p className="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-cyan-300">Why ICONOVOUS</p>
@@ -341,7 +417,7 @@ export default function IconovousHomepage() {
         </div>
       </section>
 
-      <section id="industries" className="relative z-10 mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+      <section id="industries" className="relative z-10 mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
         <div className="mb-10 flex flex-col justify-between gap-4 lg:flex-row lg:items-end">
           <div>
             <p className="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-cyan-300">Industries</p>
@@ -372,6 +448,8 @@ export default function IconovousHomepage() {
   onSubmit={async (e) => {
     e.preventDefault();
 
+    setLoading(true);
+
     const formData = {
       name: e.target.name.value,
       email: e.target.email.value,
@@ -386,7 +464,9 @@ export default function IconovousHomepage() {
       body: JSON.stringify(formData),
     });
 
-    alert("Message sent successfully");
+    setLoading(false);
+
+    alert("Your message has been sent successfully.");
     e.target.reset();
   }}
 >
@@ -415,9 +495,10 @@ export default function IconovousHomepage() {
 
   <button
     type="submit"
-    className="rounded-xl bg-slate-950 px-6 py-4 font-extrabold text-white transition hover:bg-white hover:text-slate-950"
+    disabled={loading}
+    className="rounded-xl bg-slate-950 px-6 py-4 font-extrabold text-white transition hover:scale-[1.03] hover:bg-white active:scale-95 hover:text-slate-950"
   >
-    Send Message
+    {loading ? "Sending..." : "Send Message"}
   </button>
 </form>
           </div>
@@ -439,7 +520,7 @@ export default function IconovousHomepage() {
             <div className="flex flex-col gap-4 sm:flex-row">
               <a
                 href="#contact"
-                className="inline-flex items-center justify-center rounded-full bg-cyan-300 px-7 py-4 font-extrabold text-slate-950 transition hover:bg-white"
+                className="inline-flex items-center justify-center rounded-full bg-cyan-300 px-7 py-4 font-extrabold text-slate-950 transition hover:scale-[1.03] hover:bg-white active:scale-95"
               >
                 Schedule Consultation
               </a>
@@ -457,13 +538,55 @@ export default function IconovousHomepage() {
 
       <footer className="relative z-10 border-t border-white/10 px-4 py-10 sm:px-6 lg:px-8">
         <div className="mx-auto flex max-w-7xl flex-col justify-between gap-6 text-sm text-slate-400 lg:flex-row lg:items-center">
-          <p>© {new Date().getFullYear()} ICONOVOUS Holdings Limited. All rights reserved.</p>
+          <p>© {currentYear} ICONOVOUS Holdings Limited. All rights reserved.</p>
           <div className="flex gap-5">
-            <a href="#services" className="hover:text-cyan-300">Services</a>
+            <a
+  href="#services"
+  className="transition hover:text-cyan-300"
+>Services</a>
             <a href="#solutions" className="hover:text-cyan-300">Solutions</a>
             <a href="#contact" className="hover:text-cyan-300">Contact</a>
           </div>
         </div>
+        <div className="flex items-center gap-4">
+
+  <a
+    href="https://wa.me/2348167802629"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="rounded-full border border-white/10 bg-white/[0.03] p-3 transition duration-300 hover:-translate-y-1 hover:shadow-lg"
+  >
+    <FaWhatsapp className="h-5 w-5" />
+  </a>
+
+  <a
+    href="https://instagram.com/iconovous"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="rounded-full border border-white/10 bg-white/[0.03] p-3 transition duration-300 hover:-translate-y-1 hover:shadow-lg"
+  >
+    <FaInstagram className="h-5 w-5" />
+  </a>
+
+  <a
+    href="https://linkedin.com"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="rounded-full border border-white/10 bg-white/[0.03] p-3 transition duration-300 hover:-translate-y-1 hover:shadow-lg"
+  >
+    <FaLinkedin className="h-5 w-5" />
+  </a>
+
+  <a
+    href="https://youtube.com"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="rounded-full border border-white/10 bg-white/[0.03] p-3 transition duration-300 hover:-translate-y-1 hover:shadow-lg"
+  >
+    <FaYoutube className="h-5 w-5" />
+  </a>
+
+</div>
       </footer>
     </main>
   );

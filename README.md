@@ -77,6 +77,7 @@ For partnerships, consulting, or business inquiries:
 
 Email: info@iconovous.com
 Phone: +2348167802629
+
 ⚖️ License
 
 This project is proprietary to ICONOVOUS Holdings Limited.
