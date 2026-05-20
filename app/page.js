@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import CountUp from "react-countup";
 import {
   Cloud,
   ShieldCheck,
@@ -13,6 +14,8 @@ import {
   ArrowRight,
   CheckCircle2,
   Menu,
+  Sun,
+  Moon,
   Globe2,
   Layers3,
   Building2,
@@ -88,10 +91,25 @@ const fadeUp = {
 export default function IconovousHomepage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  const [darkMode, setDarkMode] = useState(true);
+
   const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
   const currentYear = 2026;
   return (
-    <main className="min-h-screen overflow-hidden bg-slate-950 text-white">
+    <motion.main
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
+      className={`min-h-screen overflow-hidden transition-colors duration-500 ${
+        darkMode
+          ? "bg-slate-950 text-white"
+          : "bg-white text-slate-950"
+      }`}
+    >
+      <div className="pointer-events-none fixed inset-0 z-30 opacity-30">
+        <div className="absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyan-500/20 blur-[120px]" />
+      </div>
 
 {/* ================= BACKGROUND EFFECTS ================= */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -104,9 +122,59 @@ export default function IconovousHomepage() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.04),transparent_60%)]" />
 
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:80px_80px]" />
+
+        <div className="absolute left-[10%] top-[20%] h-2 w-2 animate-ping rounded-full bg-cyan-300" />
+
+        <div className="absolute right-[15%] top-[40%] h-3 w-3 animate-pulse rounded-full bg-blue-400" />
+
+        <div className="absolute bottom-[20%] left-[25%] h-2 w-2 animate-bounce rounded-full bg-violet-400" />
     </div>
 
 {/* ================= HEADER / NAVIGATION ================= */}
+  {/* TOP ANNOUNCEMENT BAR */}
+
+  {/* LIVE ENTERPRISE MARQUEE */}
+
+<section className="relative z-10 overflow-hidden border-y border-cyan-400/10 bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-violet-500/10 backdrop-blur-xl">
+
+  <div className="flex overflow-hidden py-4">
+
+    <motion.div
+      animate={{ x: ["0%", "-50%"] }}
+      transition={{
+        repeat: Infinity,
+        duration: 18,
+        ease: "linear",
+      }}
+      className="flex min-w-max items-center gap-16 whitespace-nowrap text-sm font-bold uppercase tracking-[0.25em] text-cyan-200"
+    >
+
+      <span>Enterprise IT Solutions</span>
+      <span>Cloud Infrastructure</span>
+      <span>AI Automation Systems</span>
+      <span>Cybersecurity & Compliance</span>
+      <span>24/7 Technical Support</span>
+      <span>DevOps & Scalability</span>
+      <span>Software Engineering Excellence</span>
+      <span>Digital Transformation Experts</span>
+
+      {/* DUPLICATE FOR INFINITE LOOP */}
+
+      <span>Enterprise IT Solutions</span>
+      <span>Cloud Infrastructure</span>
+      <span>AI Automation Systems</span>
+      <span>Cybersecurity & Compliance</span>
+      <span>24/7 Technical Support</span>
+      <span>DevOps & Scalability</span>
+      <span>Software Engineering Excellence</span>
+      <span>Digital Transformation Experts</span>
+
+    </motion.div>
+
+  </div>
+
+</section>
+
       <header className="sticky top-0 z-50 border-b border-white/10 bg-slate-950/80 backdrop-blur-2xl supports-[backdrop-filter]:bg-slate-950/60">
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-5 sm:px-6 lg:px-8">
           <div className="flex items-center">
@@ -141,13 +209,23 @@ export default function IconovousHomepage() {
           <button
   aria-label="Toggle Menu"
   onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-  className="rounded-xl border border-white/10 bg-white/[0.04] p-2 transition hover:border-cyan-300 lg:hidden"
+  className="rounded-xl border border-white/10 bg-white/[0.06] backdrop-blur-2xl p-2 transition hover:border-cyan-300 lg:hidden"
 >
             <Menu
                 className={`h-6 w-6 transition-transform duration-300 ${
                 mobileMenuOpen ? "rotate-90" : ""
               }`}
             />
+          </button>
+          <button
+            onClick={() => setDarkMode(!darkMode)}
+            className="rounded-xl border border-white/10 bg-white/5 p-3 transition duration-300 hover:scale-105"
+          >
+            {darkMode ? (
+              <Sun className="h-5 w-5 text-yellow-300" />
+            ) : (
+              <Moon className="h-5 w-5 text-slate-900" />
+            )}
           </button>
         </nav>
         {mobileMenuOpen && (
@@ -214,9 +292,13 @@ export default function IconovousHomepage() {
             Enterprise IT • Cloud • DevOps • Software • AI
           </div>
 
-          <h1 className="max-w-4xl bg-gradient-to-r from-white via-cyan-100 to-cyan-300 bg-clip-text text-4xl font-extrabold leading-tight tracking-tight text-transparent sm:text-6xl lg:text-7xl">
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }} 
+          className="max-w-4xl bg-gradient-to-r from-white via-cyan-100 to-cyan-300 bg-clip-text text-4xl font-extrabold leading-tight tracking-tight text-transparent sm:text-6xl lg:text-7xl">
             Engineering the future of enterprise technology and digital transformation.
-          </h1>
+          </motion.h1>
 
           <p className="mt-6 max-w-2xl text-base leading-8 text-slate-200 sm:text-lg">
             ICONOVOUS Holdings Limited delivers enterprise-grade IT consulting, cloud infrastructure, software engineering, DevOps, cybersecurity, AI automation, and digital transformation solutions for modern organizations seeking scalability, security, and operational excellence.
@@ -250,7 +332,7 @@ export default function IconovousHomepage() {
                   ["Deployments", "128", ServerCog],
                   ["Support SLA", "24/7", Headphones],
                 ].map(([label, value, Icon], i) => (
-                  <div key={String(label)} className="rounded-2xl border border-white/10 bg-white/[0.04] p-4">
+                  <div key={String(label)} className="rounded-2xl border border-white/10 bg-white/[0.06] backdrop-blur-2xl p-4">
                     <Icon className="mb-4 h-7 w-7 text-cyan-300" />
                     <p className="text-sm text-slate-400">{label}</p>
                     <p className="text-3xl font-extrabold">{value}</p>
@@ -336,8 +418,12 @@ export default function IconovousHomepage() {
           {technologies.map((tech) => (
             <motion.div
               key={tech}
-              whileHover={{ y: -5, scale: 1.05 }}
-              className="rounded-full border border-white/10 bg-white/[0.04] px-6 py-3 text-sm font-extrabold tracking-wide text-slate-200 shadow-lg backdrop-blur transition hover:border-cyan-300 hover:text-cyan-300"
+              whileHover={{
+                y: -5,
+                scale: 1.08,
+                boxShadow: "0 0 30px rgba(34,211,238,0.25)",
+            }}
+              className="rounded-full border border-white/10 bg-white/[0.06] backdrop-blur-2xl px-6 py-3 text-sm font-extrabold tracking-wide text-slate-200 shadow-lg transition hover:border-cyan-300 hover:text-cyan-300"
             >
               {tech}
             </motion.div>
@@ -351,7 +437,7 @@ export default function IconovousHomepage() {
         id="stats"
         className="relative z-10 mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8"
       >
-        <div className="grid gap-5 rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 backdrop-blur-xl sm:grid-cols-2 lg:grid-cols-4 lg:p-8">
+        <div className="grid gap-5 rounded-[2rem] border border-white/10 bg-white/[0.06] backdrop-blur-2xl p-6 backdrop-blur-xl sm:grid-cols-2 lg:grid-cols-4 lg:p-8">
           {stats.map((stat) => (
             <motion.div
               key={stat.label}
@@ -359,7 +445,18 @@ export default function IconovousHomepage() {
               className="rounded-3xl border border-white/10 bg-slate-950/70 p-6 text-center shadow-xl"
             >
               <h3 className="bg-gradient-to-r from-cyan-200 to-cyan-400 bg-clip-text text-4xl font-extrabold text-transparent">
-                {stat.value}
+                {stat.value.includes("%") ? (
+                  <>
+                    <CountUp end={99.99} duration={3} />
+                    %
+                  </>
+                ) : stat.value.includes("+") ? (
+                  <>
+                    <CountUp end={150} duration={3} />+
+                  </>
+                ) : (
+                  stat.value
+                )}
               </h3>
               <p className="mt-3 text-sm font-semibold tracking-wide text-slate-300">
                 {stat.label}
@@ -398,7 +495,7 @@ export default function IconovousHomepage() {
       ].map((item) => (
         <div
           key={item}
-          className="rounded-2xl border border-white/10 bg-slate-900/60 px-4 py-6 text-center font-bold text-slate-200 transition hover:border-cyan-300 hover:text-cyan-300"
+          className="rounded-2xl border border-white/10 bg-slate-900/60 backdrop-blur-xl px-4 py-6 text-center font-bold text-slate-200 transition hover:border-cyan-300 hover:text-cyan-300"
         >
           {item}
         </div>
@@ -472,7 +569,14 @@ export default function IconovousHomepage() {
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service) => (
             <motion.div key={service.title} whileHover={{ y: -10, scale: 1.02 }} transition={{ duration: 0.3 }} className="group relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-white/[0.08] to-white/[0.03] p-7 shadow-2xl backdrop-blur-xl transition hover:border-cyan-300/40 hover:shadow-cyan-500/20"><div className="absolute inset-0 opacity-0 transition duration-500 group-hover:opacity-100 bg-[radial-gradient(circle_at_top,rgba(34,211,238,0.18),transparent_55%)]" />
-              <service.icon className="mb-6 h-10 w-10 text-cyan-300" />
+              <motion.div
+                whileHover={{ rotate: 8, scale: 1.15 }}
+                transition={{ duration: 0.3 }}
+              >
+
+                <service.icon className="mb-6 h-10 w-10 text-cyan-300" />
+
+              </motion.div>
               <h3 className="text-xl font-extrabold">{service.title}</h3>
               <p className="mt-3 leading-7 text-slate-300">{service.text}</p>
             </motion.div>
@@ -522,13 +626,121 @@ export default function IconovousHomepage() {
 
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {industries.map((industry) => (
-            <div key={industry} className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.04] p-5">
+            <div key={industry} className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.06] backdrop-blur-2xl p-5">
               <Building2 className="h-6 w-6 text-cyan-300" />
               <span className="font-bold">{industry}</span>
             </div>
           ))}
         </div>
       </motion.section>
+
+{/* TESTIMONIALS SECTION */}
+
+<section className="relative z-10 mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
+
+  <div className="mb-14 text-center">
+    <p className="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-cyan-300">
+      Client Testimonials
+    </p>
+
+    <h2 className="text-3xl font-extrabold sm:text-5xl">
+      Trusted by forward-thinking organizations.
+    </h2>
+  </div>
+
+  <div className="grid gap-6 lg:grid-cols-3">
+
+    {[
+      {
+        name: "Enterprise Client",
+        text: "ICONOVOUS transformed our technology operations with professionalism and enterprise-grade execution.",
+      },
+      {
+        name: "Startup Founder",
+        text: "Their DevOps and cloud expertise helped us scale infrastructure confidently and securely.",
+      },
+      {
+        name: "Business Executive",
+        text: "Exceptional delivery, strategic consulting, and strong technical leadership throughout the project.",
+      },
+    ].map((item) => (
+      <div
+        key={item.name}
+        className="rounded-[2rem] border border-white/10 bg-white/[0.05] p-8 backdrop-blur-xl"
+      >
+        <p className="leading-8 text-slate-300">
+          “{item.text}”
+        </p>
+
+        <div className="mt-6">
+          <h3 className="font-extrabold">
+            {item.name}
+          </h3>
+        </div>
+      </div>
+    ))}
+
+  </div>
+</section>
+
+<div className="mb-14 h-px w-full bg-gradient-to-r from-transparent via-cyan-400/20 to-transparent" />
+
+{/* WHY CHOOSE US SECTION */}
+
+<section className="relative z-10 mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
+
+  <div className="mb-14 text-center">
+
+    <p className="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-cyan-300">
+      Why Choose ICONOVOUS
+    </p>
+
+    <h2 className="text-3xl font-extrabold sm:text-5xl">
+      Technology leadership built on innovation and excellence.
+    </h2>
+
+  </div>
+
+  <div className="grid gap-6 lg:grid-cols-3">
+
+    {[
+      {
+        title: "Enterprise Expertise",
+        text: "We architect scalable, secure, and future-ready technology systems for modern businesses.",
+      },
+
+      {
+        title: "Innovation Driven",
+        text: "We combine cloud, DevOps, AI, and software engineering to create intelligent digital ecosystems.",
+      },
+
+      {
+        title: "Reliable Partnership",
+        text: "We focus on long-term collaboration, operational excellence, and measurable business growth.",
+      },
+    ].map((item) => (
+
+      <motion.div
+        key={item.title}
+        whileHover={{ y: -8 }}
+        className="rounded-[2rem] border border-white/10 bg-white/[0.05] p-8 backdrop-blur-xl"
+      >
+
+        <h3 className="text-2xl font-extrabold">
+          {item.title}
+        </h3>
+
+        <p className="mt-5 leading-8 text-slate-300">
+          {item.text}
+        </p>
+
+      </motion.div>
+
+    ))}
+
+  </div>
+
+</section>
 
 <div className="mb-14 h-px w-full bg-gradient-to-r from-transparent via-cyan-400/20 to-transparent" />
 
@@ -542,7 +754,17 @@ export default function IconovousHomepage() {
           <div className="grid gap-8 lg:grid-cols-[1.3fr_0.7fr] lg:items-center">
             <div>
               <h2 className="text-3xl font-extrabold sm:text-5xl">Ready to build, manage, or scale your next technology solution?</h2>
-              <p className="mt-5 max-w-3xl text-lg font-medium text-slate-800">Partner with ICONOVOUS Holdings Limited for world-class IT consulting, development, DevOps, cloud, cybersecurity, and managed technology services.</p>
+              <p className="mt-5 max-w-3xl text-lg font-medium text-slate-800">
+                Partner with ICONOVOUS Holdings Limited for world-class IT consulting, development, DevOps, cloud, cybersecurity, and managed technology services.</p>
+              <div className="mt-8 space-y-3 text-sm font-medium text-slate-800">
+
+                <p>Email: info@iconovous.com</p>
+
+                <p>Phone: +234 816 780 2629</p>
+
+                <p>Lagos, Nigeria</p>
+
+              </div>
             </div>
             <form
   className="flex flex-col gap-4"
@@ -567,7 +789,11 @@ export default function IconovousHomepage() {
 
     setLoading(false);
 
-    alert("Your message has been sent successfully.");
+    setSuccess(true);
+
+    setTimeout(() => {
+      setSuccess(false);
+    }, 4000);
     e.target.reset();
   }}
 >
@@ -594,12 +820,28 @@ export default function IconovousHomepage() {
     className="rounded-xl border border-white/20 bg-white px-4 py-3 text-black outline-none"
   />
 
+    {success && (
+      <div className="rounded-xl bg-green-500 px-4 py-3 text-sm font-bold text-white">
+        Message sent successfully.
+      </div>
+    )}
+
   <button
     type="submit"
     disabled={loading}
     className="rounded-xl bg-slate-950 px-6 py-4 font-extrabold text-white transition hover:scale-[1.03] hover:bg-white active:scale-95 hover:text-slate-950"
   >
-    {loading ? "Sending..." : "Send Message"}
+    {loading ? (
+      <div className="flex items-center justify-center gap-3">
+
+        <div className="h-5 w-5 animate-spin rounded-full border-2 border-white border-t-transparent" />
+
+        Sending...
+
+      </div>
+    ) : (
+      "Send Message"
+    )}
   </button>
 </form>
           </div>
@@ -639,29 +881,99 @@ export default function IconovousHomepage() {
         </div>
       </motion.section>
 
-      <footer className="relative z-10 border-t border-white/10 px-4 py-10 sm:px-6 lg:px-8">
-      <div className="mx-auto flex max-w-7xl flex-col justify-between gap-6 text-sm text-slate-400 lg:flex-row lg:items-center">
-      <div className="mb-4">
-  <Image
-    src="/logo-dark.png"
-    alt="ICONOVOUS"
-    width={180}
-    height={60}
-    className="h-auto w-[150px]"
-  />
-</div>
-          <p>© {currentYear} ICONOVOUS Holdings Limited. All rights reserved.</p>
-          <div className="flex gap-5">
-            <a
-  href="#services"
-  className="transition hover:text-cyan-300"
->Services</a>
-            <a href="#solutions" className="hover:text-cyan-300">Solutions</a>
-            <a href="#contact" className="hover:text-cyan-300">Contact</a>
-          </div>
-        </div>
-        <div className="flex items-center gap-4">
+<div className="mb-14 h-px w-full bg-gradient-to-r from-transparent via-cyan-400/20 to-transparent" />
 
+{/* FINAL CTA SECTION */}
+
+<section className="relative z-10 mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+
+  <div className="rounded-[2.5rem] border border-cyan-400/20 bg-gradient-to-br from-cyan-400/10 to-blue-500/10 p-10 text-center backdrop-blur-2xl">
+
+    <h2 className="text-3xl font-extrabold sm:text-5xl">
+      Ready to transform your technology infrastructure?
+    </h2>
+
+    <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-slate-300">
+      Let ICONOVOUS Holdings Limited help your organization scale securely,
+      innovate confidently, and operate with enterprise-grade efficiency.
+    </p>
+
+    <a
+      href="#contact"
+      className="mt-8 inline-flex rounded-full bg-cyan-300 px-8 py-4 font-extrabold text-slate-950 transition duration-300 hover:scale-105 hover:bg-white"
+    >
+      Start Your Project
+    </a>
+
+  </div>
+
+</section>
+
+      <footer className="relative z-10 border-t border-white/10 px-4 py-10 sm:px-6 lg:px-8">
+      <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-3">
+
+  {/* LEFT SIDE */}
+
+  <div>
+
+    <Image
+      src="/logo-dark.png"
+      alt="ICONOVOUS"
+      width={180}
+      height={60}
+      className="mb-4 h-auto w-[150px]"
+    />
+
+    <p className="text-sm leading-7 text-slate-400">
+      ICONOVOUS Holdings Limited delivers enterprise-grade IT consulting,
+      cloud infrastructure, DevOps, cybersecurity, software engineering,
+      and AI-powered digital transformation solutions.
+    </p>
+
+    <p className="mt-5 text-sm text-slate-500">
+      © {new Date().getFullYear()} ICONOVOUS Holdings Limited.
+    </p>
+
+  </div>
+
+  {/* MIDDLE LINKS */}
+
+  <div>
+
+    <h3 className="mb-5 text-lg font-bold text-white">
+      Quick Links
+    </h3>
+
+    <div className="flex flex-col gap-4 text-sm text-slate-400">
+
+      <a href="#services" className="transition hover:text-cyan-300">
+        Services
+      </a>
+
+      <a href="#solutions" className="transition hover:text-cyan-300">
+        Solutions
+      </a>
+
+      <a href="#industries" className="transition hover:text-cyan-300">
+        Industries
+      </a>
+
+      <a href="#contact" className="transition hover:text-cyan-300">
+        Contact
+      </a>
+
+    </div>
+
+  </div>
+
+  {/* RIGHT SOCIALS */}
+
+  <div>
+
+    <h3 className="mb-5 text-lg font-bold text-white">
+      Connect With Us
+    </h3>
+<div className="flex items-center gap-4">
   <a
     href="https://wa.me/2348167802629"
     target="_blank"
@@ -697,7 +1009,8 @@ export default function IconovousHomepage() {
   >
     <FaYoutube className="h-5 w-5" />
   </a>
-
+  </div>
+  </div>
 </div>
       </footer>
       {/* FLOATING WHATSAPP BUTTON */}
@@ -714,6 +1027,6 @@ export default function IconovousHomepage() {
     Chat with us
   </span>
 </a>
-    </main>
+    </motion.main>
   );
 }
