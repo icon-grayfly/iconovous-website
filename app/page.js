@@ -1,4 +1,5 @@
 "use client";
+import Tilt from "react-parallax-tilt";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
@@ -113,11 +114,44 @@ export default function IconovousHomepage() {
 
 {/* ================= BACKGROUND EFFECTS ================= */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 left-1/2 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-cyan-500/20 blur-[120px]" />
+        <motion.div
+  animate={{
+    y: [0, -30, 0],
+    x: [0, 20, 0],
+  }}
+  transition={{
+    duration: 10,
+    repeat: Infinity,
+    ease: "easeInOut",
+  }}
+  className="absolute top-0 left-1/2 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-cyan-500/20 blur-[120px]"
+/>
 
-        <div className="absolute left-0 top-40 h-[350px] w-[350px] rounded-full bg-blue-600/20 blur-[100px]" />
+<motion.div
+  animate={{
+    y: [0, 25, 0],
+    x: [0, -20, 0],
+  }}
+  transition={{
+    duration: 12,
+    repeat: Infinity,
+    ease: "easeInOut",
+  }}
+  className="absolute left-0 top-40 h-[350px] w-[350px] rounded-full bg-blue-600/20 blur-[100px]"
+/>
 
-        <div className="absolute bottom-0 right-0 h-[450px] w-[450px] rounded-full bg-violet-600/20 blur-[120px]" />
+<motion.div
+  animate={{
+    y: [0, -20, 0],
+    x: [0, 15, 0],
+  }}
+  transition={{
+    duration: 14,
+    repeat: Infinity,
+    ease: "easeInOut",
+  }}
+  className="absolute bottom-0 right-0 h-[450px] w-[450px] rounded-full bg-violet-600/20 blur-[120px]"
+/>
 
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.04),transparent_60%)]" />
 
@@ -175,6 +209,7 @@ export default function IconovousHomepage() {
 
 </section>
 
+{/* HEADER SECTION */}
       <header className="sticky top-0 z-50 border-b border-white/10 bg-slate-950/80 backdrop-blur-2xl supports-[backdrop-filter]:bg-slate-950/60">
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-5 sm:px-6 lg:px-8">
           <div className="flex items-center">
@@ -199,6 +234,9 @@ export default function IconovousHomepage() {
 >Services</a>
             <a href="#solutions" className="hover:text-cyan-300">Solutions</a>
             <a href="#industries" className="hover:text-cyan-300">Industries</a>
+            <Link href="/events" className="hover:text-cyan-300">
+              Events
+            </Link>
             <a href="#contact" className="hover:text-cyan-300">Contact</a>
           </div>
 
@@ -263,6 +301,14 @@ export default function IconovousHomepage() {
         Industries
       </a>
 
+      <Link
+        href="/events"
+        onClick={() => setMobileMenuOpen(false)}
+        className="transition hover:text-cyan-300"
+      >
+        Events
+      </Link>
+
       <a
         href="#contact"
         onClick={() => setMobileMenuOpen(false)}
@@ -288,7 +334,7 @@ export default function IconovousHomepage() {
     repeat: Infinity,
   }} 
             className="mb-6 inline-flex items-center gap-2 rounded-full border border-cyan-300/30 bg-cyan-300/10 px-4 py-2 text-sm text-cyan-100">
-            <span className="h-2 w-2 rounded-full bg-cyan-300" />
+            <span className="h-2 w-2 rounded-full bg-cyan-300 shadow-[0_0_35px_rgba(34,211,238,0.45)]" />
             Enterprise IT • Cloud • DevOps • Software • AI
           </div>
 
@@ -305,7 +351,7 @@ export default function IconovousHomepage() {
           </p>
 
           <motion.div className="mt-8 flex flex-col gap-4 sm:flex-row">
-            <a href="#contact" className="inline-flex items-center justify-center gap-2 rounded-full bg-cyan-300 px-7 py-4 shadow-xl shadow-cyan-400/20 font-bold text-slate-950 shadow-xl shadow-cyan-500/20 transition hover:scale-[1.03] hover:bg-white active:scale-95">
+            <a href="#contact" className="inline-flex items-center justify-center gap-2 rounded-full bg-cyan-300 shadow-[0_0_35px_rgba(34,211,238,0.45)] px-7 py-4 shadow-xl shadow-cyan-400/20 font-bold text-slate-950 shadow-xl shadow-cyan-500/20 transition hover:scale-[1.03] hover:bg-white active:scale-95">
               Start a Project <ArrowRight className="h-5 w-5" />
             </a>
             <a href="#services" className="inline-flex items-center justify-center rounded-full border border-white/15 px-7 py-4 font-bold text-white transition hover:border-cyan-300 hover:text-cyan-200">
@@ -347,7 +393,7 @@ export default function IconovousHomepage() {
                     <div key={item} className="flex items-center gap-3">
                       <CheckCircle2 className="h-5 w-5 text-cyan-300" />
                       <div className="h-2 flex-1 rounded-full bg-white/10">
-                        <div className="h-2 rounded-full bg-cyan-300" style={{ width: `${55 + i * 9}%` }} />
+                        <div className="h-2 rounded-full bg-cyan-300 shadow-[0_0_35px_rgba(34,211,238,0.45)]" style={{ width: `${55 + i * 9}%` }} />
                       </div>
                       <span className="w-16 text-xs text-slate-300">{item}</span>
                     </div>
@@ -442,7 +488,7 @@ export default function IconovousHomepage() {
             <motion.div
               key={stat.label}
               whileHover={{ y: -6 }}
-              className="group rounded-3xl border border-white/10 bg-slate-950/70 p-6 text-center shadow-xl transition duration-500 hover:-translate-y-2 hover:border-cyan-300 hover:shadow-cyan-500/20"
+              className="group rounded-3xl border border-white/10 bg-slate-950/50 shadow-[0_8px_32px_rgba(0,0,0,0.3)] p-6 text-center shadow-xl transition duration-500 hover:-translate-y-2 hover:border-cyan-300 hover:shadow-cyan-500/20"
             >
               <h3 className="bg-gradient-to-r from-cyan-200 to-cyan-400 bg-clip-text text-4xl font-extrabold text-transparent">
 
@@ -582,15 +628,43 @@ export default function IconovousHomepage() {
 
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service) => (
-            <motion.div key={service.title} whileHover={{ y: -10, scale: 1.02 }} transition={{ duration: 0.3 }} className="group relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-white/[0.08] to-white/[0.03] p-7 shadow-2xl backdrop-blur-xl transition hover:border-cyan-300/40 hover:shadow-cyan-500/20"><div className="absolute inset-0 opacity-0 transition duration-500 group-hover:opacity-100 bg-[radial-gradient(circle_at_top,rgba(34,211,238,0.18),transparent_55%)]" />
+            
+            <motion.div
+  key={service.title}
+  whileHover={{
+    y: -12,
+    scale: 1.03,
+    rotateX: 4,
+    rotateY: -4,
+  }}
+  transition={{ duration: 0.35 }}
+  style={{
+    transformStyle: "preserve-3d",
+  }}
+  className="group relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-white/[0.08] to-white/[0.03] p-7 shadow-2xl backdrop-blur-xl transition hover:border-cyan-300/40 hover:shadow-[0_25px_80px_rgba(34,211,238,0.25)]"
+>
+              <div className="absolute inset-0 opacity-0 transition duration-700 group-hover:opacity-100 bg-[radial-gradient(circle_at_top,rgba(34,211,238,0.22),transparent_60%)]" />
+
+              <div className="absolute -top-24 left-1/2 h-40 w-40 -translate-x-1/2 rounded-full bg-cyan-400/20 blur-3xl transition duration-700 group-hover:scale-150" />
+              <Tilt
+                tiltMaxAngleX={10}
+                tiltMaxAngleY={10}
+                perspective={1200}
+                transitionSpeed={1500}
+                scale={1.02}
+                gyroscope={true}
+              >
               <motion.div
                 whileHover={{ rotate: 8, scale: 1.15 }}
                 transition={{ duration: 0.3 }}
               >
 
-                <service.icon className="mb-6 h-10 w-10 text-cyan-300" />
+                <div className="mb-6 inline-flex rounded-2xl border border-cyan-300/20 bg-cyan-300/10 p-4 shadow-lg shadow-cyan-500/10">
+                  <service.icon className="h-10 w-10 text-cyan-300" />
+                </div>
 
               </motion.div>
+              </Tilt>
               <h3 className="text-xl font-extrabold">{service.title}</h3>
               <p className="mt-3 leading-7 text-slate-300">{service.text}</p>
             </motion.div>
@@ -923,6 +997,95 @@ export default function IconovousHomepage() {
 
 </section>
 
+<section className="relative z-10 px-4 py-20 sm:px-6 lg:px-8">
+
+  <div className="mx-auto max-w-5xl rounded-[2rem] border border-white/10 bg-white/[0.04] p-10 text-center backdrop-blur-xl">
+
+    <h2 className="text-4xl font-extrabold">
+      Stay updated with enterprise innovation.
+    </h2>
+
+    <p className="mx-auto mt-5 max-w-2xl text-slate-300">
+      Receive updates about technology trends, enterprise solutions,
+      upcoming events, and innovation opportunities.
+    </p>
+
+    <div className="mx-auto mt-8 flex max-w-2xl flex-col gap-4 sm:flex-row">
+
+      <input
+        type="email"
+        placeholder="Enter your email"
+        className="flex-1 rounded-2xl border border-white/10 bg-slate-900 px-5 py-4 outline-none"
+      />
+
+      <button className="rounded-2xl bg-cyan-300 px-8 py-4 font-bold text-slate-950 transition hover:bg-white">
+        Subscribe
+      </button>
+
+    </div>
+  </div>
+</section>
+
+{/* EVENTS PREVIEW SECTION */}
+
+<section className="relative z-10 mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
+
+  <div className="overflow-hidden rounded-[2.5rem] border border-white/10 bg-gradient-to-br from-cyan-500/10 to-blue-500/10 p-10 backdrop-blur-xl">
+
+    <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
+
+      <div>
+
+        <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-cyan-300">
+          Events & Experiences
+        </p>
+
+        <h2 className="text-4xl font-extrabold leading-tight sm:text-5xl">
+          Premium enterprise events, conferences, and ticket experiences.
+        </h2>
+
+        <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
+          Discover innovation summits, startup expos,
+          AI conferences, enterprise networking events,
+          and premium technology experiences powered
+          by ICONOVOUS Holdings Limited.
+        </p>
+
+        <div className="mt-10">
+
+          <Link
+            href="/events"
+            className="inline-flex items-center gap-3 rounded-full bg-cyan-300 px-8 py-4 font-bold text-slate-950 transition duration-300 hover:scale-[1.03] hover:bg-white active:scale-95"
+          >
+            Explore Events
+            <ArrowRight className="h-5 w-5" />
+          </Link>
+
+        </div>
+
+      </div>
+
+      <div className="relative h-[400px] overflow-hidden rounded-[2rem]">
+
+        <Image
+          src="/event1.jpg"
+          alt="Events"
+          fill
+          sizes="(max-width: 768px) 100vw, 50vw"
+          className="object-cover"
+        />
+
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent" />
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+{/* FOOTER SECTION */}
       <footer className="relative z-10 border-t border-white/10 px-4 py-10 sm:px-6 lg:px-8">
       <div className="mx-auto grid max-w-7xl gap-14 lg:grid-cols-3 lg:gap-20">
 
@@ -973,6 +1136,13 @@ export default function IconovousHomepage() {
       <a href="#industries" className="transition hover:text-cyan-300">
         Industries
       </a>
+
+      <Link
+        href="/events"
+        className="transition hover:text-cyan-300"
+        >
+        Events
+      </Link>
 
       <a href="#contact" className="transition hover:text-cyan-300">
         Contact
@@ -1029,7 +1199,8 @@ export default function IconovousHomepage() {
   </div>
 </div>
       </footer>
-      {/* FLOATING WHATSAPP BUTTON */}
+      
+{/* FLOATING WHATSAPP BUTTON */}
 
 <a
   href="https://wa.me/2348167802629"
