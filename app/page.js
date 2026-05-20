@@ -105,7 +105,7 @@ export default function IconovousHomepage() {
     </div>
 
 {/* ================= HEADER / NAVIGATION ================= */}
-      <header className="sticky top-0 relative z-20 border-b border-white/10 bg-slate-950/80 shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-xl">
+      <header className="sticky top-0 z-50 border-b border-white/10 bg-slate-950/80 backdrop-blur-2xl supports-[backdrop-filter]:bg-slate-950/60">
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-5 sm:px-6 lg:px-8">
           <div className="flex items-center">
             <Link 
@@ -149,7 +149,14 @@ export default function IconovousHomepage() {
           </button>
         </nav>
         {mobileMenuOpen && (
-  <div className="border-t border-white/10 bg-slate-950/95 px-6 py-6 backdrop-blur-xl lg:hidden">
+            <motion.div
+                initial={{ opacity: 0, y: -15 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -15 }}
+                transition={{ duration: 0.25 }}
+                className="border-t border-white/10 bg-slate-950/95 px-6 py-6 backdrop-blur-xl lg:hidden"
+            >
+  <motion.div className="border-t border-white/10 bg-slate-950/95 px-6 py-6 backdrop-blur-xl lg:hidden">
     <div className="flex flex-col gap-5 text-lg font-semibold text-white">
 
       <a
@@ -185,14 +192,22 @@ export default function IconovousHomepage() {
       </a>
 
     </div>
-  </div>
+    </motion.div>
+</motion.div>
 )}
       </header>
       
+      <div className="mb-14 h-px w-full bg-gradient-to-r from-transparent via-cyan-400/20 to-transparent" />
 {/* ================= HERO SECTION ================= */}
       <section className="relative z-10 mx-auto grid max-w-7xl items-center gap-16 px-4 py-24 sm:px-6 lg:grid-cols-2 lg:px-8 lg:py-32">
         <motion.div initial="hidden" animate="visible" variants={fadeUp} transition={{ duration: 0.7 }}>
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-cyan-300/30 bg-cyan-300/10 px-4 py-2 text-sm text-cyan-100">
+          <div
+  animate={{ y: [0, -4, 0] }}
+  transition={{
+    duration: 3,
+    repeat: Infinity,
+  }} 
+            className="mb-6 inline-flex items-center gap-2 rounded-full border border-cyan-300/30 bg-cyan-300/10 px-4 py-2 text-sm text-cyan-100">
             <span className="h-2 w-2 rounded-full bg-cyan-300" />
             Enterprise IT • Cloud • DevOps • Software • AI
           </div>
@@ -205,14 +220,14 @@ export default function IconovousHomepage() {
             ICONOVOUS Holdings Limited delivers enterprise-grade IT consulting, cloud infrastructure, software engineering, DevOps, cybersecurity, AI automation, and digital transformation solutions for modern organizations seeking scalability, security, and operational excellence.
           </p>
 
-          <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+          <motion.div className="mt-8 flex flex-col gap-4 sm:flex-row">
             <a href="#contact" className="inline-flex items-center justify-center gap-2 rounded-full bg-cyan-300 px-7 py-4 font-bold text-slate-950 shadow-xl shadow-cyan-500/20 transition hover:scale-[1.03] hover:bg-white active:scale-95">
               Start a Project <ArrowRight className="h-5 w-5" />
             </a>
             <a href="#services" className="inline-flex items-center justify-center rounded-full border border-white/15 px-7 py-4 font-bold text-white transition hover:border-cyan-300 hover:text-cyan-200">
               Explore Services
             </a>
-          </div>
+          </motion.div>
         </motion.div>
 
         <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.15 }} className="relative">
@@ -287,6 +302,8 @@ export default function IconovousHomepage() {
         </motion.div>
       </section>
 
+<div className="mb-14 h-px w-full bg-gradient-to-r from-transparent via-cyan-400/20 to-transparent" />
+
       <section
         id="technologies"
         className="relative z-10 mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8"
@@ -313,6 +330,8 @@ export default function IconovousHomepage() {
         </div>
       </section>
 
+<div className="mb-14 h-px w-full bg-gradient-to-r from-transparent via-cyan-400/20 to-transparent" />
+
       <section
         id="stats"
         className="relative z-10 mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8"
@@ -334,6 +353,8 @@ export default function IconovousHomepage() {
           ))}
         </div>
       </section>
+
+<div className="mb-14 h-px w-full bg-gradient-to-r from-transparent via-cyan-400/20 to-transparent" />
 
 <section className="relative z-10 border-y border-white/10 bg-white/[0.03] backdrop-blur-xl">
   <div className="mx-auto flex max-w-7xl flex-col gap-8 px-4 py-8 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
@@ -382,6 +403,8 @@ export default function IconovousHomepage() {
   </div>
 </section>
 
+<div className="mb-14 h-px w-full bg-gradient-to-r from-transparent via-cyan-400/20 to-transparent" />
+
       <section id="services" className="relative z-10 mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
         <div className="mb-10 max-w-3xl">
           <p className="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-cyan-300">Our Services</p>
@@ -391,7 +414,7 @@ export default function IconovousHomepage() {
 
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service) => (
-            <motion.div key={service.title} whileHover={{ y: -10, scale: 1.02 }} transition={{ duration: 0.3 }} className="group relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-white/[0.08] to-white/[0.03] p-7 shadow-2xl backdrop-blur-xl transition hover:border-cyan-300/40 hover:shadow-cyan-500/10"><div className="absolute inset-0 opacity-0 transition duration-500 group-hover:opacity-100 bg-[radial-gradient(circle_at_top,rgba(34,211,238,0.18),transparent_55%)]" />
+            <motion.div key={service.title} whileHover={{ y: -10, scale: 1.02 }} transition={{ duration: 0.3 }} className="group relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-white/[0.08] to-white/[0.03] p-7 shadow-2xl backdrop-blur-xl transition hover:border-cyan-300/40 hover:shadow-cyan-500/20"><div className="absolute inset-0 opacity-0 transition duration-500 group-hover:opacity-100 bg-[radial-gradient(circle_at_top,rgba(34,211,238,0.18),transparent_55%)]" />
               <service.icon className="mb-6 h-10 w-10 text-cyan-300" />
               <h3 className="text-xl font-extrabold">{service.title}</h3>
               <p className="mt-3 leading-7 text-slate-300">{service.text}</p>
@@ -399,6 +422,8 @@ export default function IconovousHomepage() {
           ))}
         </div>
       </section>
+
+<div className="mb-14 h-px w-full bg-gradient-to-r from-transparent via-cyan-400/20 to-transparent" />
 
       <section id="solutions" className="relative z-10 mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
         <div className="grid gap-8 rounded-[2rem] border border-white/10 bg-white/[0.06] p-6 backdrop-blur-xl lg:grid-cols-2 lg:p-10">
@@ -416,6 +441,8 @@ export default function IconovousHomepage() {
           </div>
         </div>
       </section>
+
+<div className="mb-14 h-px w-full bg-gradient-to-r from-transparent via-cyan-400/20 to-transparent" />
 
       <section id="industries" className="relative z-10 mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
         <div className="mb-10 flex flex-col justify-between gap-4 lg:flex-row lg:items-end">
@@ -435,6 +462,8 @@ export default function IconovousHomepage() {
           ))}
         </div>
       </section>
+
+<div className="mb-14 h-px w-full bg-gradient-to-r from-transparent via-cyan-400/20 to-transparent" />
 
       <section id="contact" className="relative z-10 mx-auto max-w-7xl px-4 py-28 sm:px-6 lg:px-8">
         <div className="rounded-[2.5rem] bg-gradient-to-br from-cyan-300 to-blue-500 p-8 text-slate-950 shadow-2xl shadow-cyan-500/20 sm:p-12 lg:p-16">
@@ -505,6 +534,8 @@ export default function IconovousHomepage() {
         </div>
       </section>
 
+<div className="mb-14 h-px w-full bg-gradient-to-r from-transparent via-cyan-400/20 to-transparent" />
+
       <section className="relative z-10 mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
         <div className="rounded-[2rem] border border-cyan-300/10 bg-gradient-to-br from-slate-900 to-slate-950 p-8 shadow-2xl">
           <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
@@ -537,7 +568,16 @@ export default function IconovousHomepage() {
       </section>
 
       <footer className="relative z-10 border-t border-white/10 px-4 py-10 sm:px-6 lg:px-8">
-        <div className="mx-auto flex max-w-7xl flex-col justify-between gap-6 text-sm text-slate-400 lg:flex-row lg:items-center">
+      <div className="mx-auto flex max-w-7xl flex-col justify-between gap-6 text-sm text-slate-400 lg:flex-row lg:items-center">
+      <div className="mb-4">
+  <Image
+    src="/logo-dark.png"
+    alt="ICONOVOUS"
+    width={180}
+    height={60}
+    className="h-auto w-[150px]"
+  />
+</div>
           <p>© {currentYear} ICONOVOUS Holdings Limited. All rights reserved.</p>
           <div className="flex gap-5">
             <a
