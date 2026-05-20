@@ -442,21 +442,35 @@ export default function IconovousHomepage() {
             <motion.div
               key={stat.label}
               whileHover={{ y: -6 }}
-              className="rounded-3xl border border-white/10 bg-slate-950/70 p-6 text-center shadow-xl"
+              className="group rounded-3xl border border-white/10 bg-slate-950/70 p-6 text-center shadow-xl transition duration-500 hover:-translate-y-2 hover:border-cyan-300 hover:shadow-cyan-500/20"
             >
               <h3 className="bg-gradient-to-r from-cyan-200 to-cyan-400 bg-clip-text text-4xl font-extrabold text-transparent">
-                {stat.value.includes("%") ? (
+
+                {stat.value === "99.99%" && (
                   <>
-                    <CountUp end={99.99} duration={3} />
+                    <CountUp
+                      end={99.99}
+                      duration={3}
+                      decimals={2}
+                    />
                     %
                   </>
-                ) : stat.value.includes("+") ? (
-                  <>
-                    <CountUp end={150} duration={3} />+
-                  </>
-                ) : (
-                  stat.value
                 )}
+
+                {stat.value === "24/7" && "24/7"}
+
+                {stat.value === "150+" && (
+                  <>
+                    <CountUp
+                      end={150}
+                      duration={3}
+                    />
+                    +
+                  </>
+                )}
+
+                {stat.value === "Enterprise" && "Enterprise"}
+
               </h3>
               <p className="mt-3 text-sm font-semibold tracking-wide text-slate-300">
                 {stat.label}
@@ -730,7 +744,7 @@ export default function IconovousHomepage() {
           {item.title}
         </h3>
 
-        <p className="mt-5 leading-8 text-slate-300">
+        <p className="mt-4 leading-7 text-slate-400">
           {item.text}
         </p>
 
@@ -910,7 +924,7 @@ export default function IconovousHomepage() {
 </section>
 
       <footer className="relative z-10 border-t border-white/10 px-4 py-10 sm:px-6 lg:px-8">
-      <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-3">
+      <div className="mx-auto grid max-w-7xl gap-14 lg:grid-cols-3 lg:gap-20">
 
   {/* LEFT SIDE */}
 
@@ -924,15 +938,17 @@ export default function IconovousHomepage() {
       className="mb-4 h-auto w-[150px]"
     />
 
-    <p className="text-sm leading-7 text-slate-400">
+    <p className="max-w-md text-sm leading-8 text-slate-400">
       ICONOVOUS Holdings Limited delivers enterprise-grade IT consulting,
       cloud infrastructure, DevOps, cybersecurity, software engineering,
       and AI-powered digital transformation solutions.
     </p>
 
-    <p className="mt-5 text-sm text-slate-500">
-      © {new Date().getFullYear()} ICONOVOUS Holdings Limited.
-    </p>
+    <div className="mt-8 border-t border-white/10 pt-6">
+      <p className="text-sm text-slate-500">
+        © {new Date().getFullYear()} ICONOVOUS Holdings Limited.
+      </p>
+    </div>
 
   </div>
 
