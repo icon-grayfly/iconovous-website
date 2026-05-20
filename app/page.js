@@ -102,6 +102,8 @@ export default function IconovousHomepage() {
         <div className="absolute bottom-0 right-0 h-[450px] w-[450px] rounded-full bg-violet-600/20 blur-[120px]" />
 
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.04),transparent_60%)]" />
+
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:80px_80px]" />
     </div>
 
 {/* ================= HEADER / NAVIGATION ================= */}
@@ -221,7 +223,7 @@ export default function IconovousHomepage() {
           </p>
 
           <motion.div className="mt-8 flex flex-col gap-4 sm:flex-row">
-            <a href="#contact" className="inline-flex items-center justify-center gap-2 rounded-full bg-cyan-300 px-7 py-4 font-bold text-slate-950 shadow-xl shadow-cyan-500/20 transition hover:scale-[1.03] hover:bg-white active:scale-95">
+            <a href="#contact" className="inline-flex items-center justify-center gap-2 rounded-full bg-cyan-300 px-7 py-4 shadow-xl shadow-cyan-400/20 font-bold text-slate-950 shadow-xl shadow-cyan-500/20 transition hover:scale-[1.03] hover:bg-white active:scale-95">
               Start a Project <ArrowRight className="h-5 w-5" />
             </a>
             <a href="#services" className="inline-flex items-center justify-center rounded-full border border-white/15 px-7 py-4 font-bold text-white transition hover:border-cyan-300 hover:text-cyan-200">
@@ -231,7 +233,7 @@ export default function IconovousHomepage() {
         </motion.div>
 
         <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.15 }} className="relative">
-          <div className="relative overflow-hidden rounded-[2rem] border border-cyan-300/20 bg-white/10 p-4 shadow-[0_0_80px_rgba(34,211,238,0.15)] backdrop-blur-xl"><div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(34,211,238,0.15),transparent_40%)]" />
+          <div className="relative animate-pulse overflow-hidden rounded-[2rem] border border-cyan-300/20 bg-white/10 p-4 shadow-[0_0_80px_rgba(34,211,238,0.15)] backdrop-blur-xl"><div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(34,211,238,0.15),transparent_40%)]" />
             <div className="rounded-[1.5rem] bg-slate-900 p-5">
               <div className="mb-5 flex items-center justify-between">
                 <div>
@@ -302,6 +304,19 @@ export default function IconovousHomepage() {
         </motion.div>
       </section>
 
+      <div className="mt-14 flex justify-center">
+  <motion.div
+    animate={{ y: [0, 12, 0] }}
+    transition={{
+      duration: 1.8,
+      repeat: Infinity,
+    }}
+    className="flex h-14 w-8 justify-center rounded-full border border-white/20"
+  >
+    <div className="mt-2 h-3 w-3 rounded-full bg-cyan-300" />
+  </motion.div>
+</div>
+
 <div className="mb-14 h-px w-full bg-gradient-to-r from-transparent via-cyan-400/20 to-transparent" />
 
       <section
@@ -356,6 +371,43 @@ export default function IconovousHomepage() {
 
 <div className="mb-14 h-px w-full bg-gradient-to-r from-transparent via-cyan-400/20 to-transparent" />
 
+{/* TRUST SECTION */}
+
+<section className="relative z-10 mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+  <div className="rounded-[2rem] border border-white/10 bg-white/[0.03] p-8 backdrop-blur-xl">
+
+    <div className="mb-10 text-center">
+      <p className="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-cyan-300">
+        Trusted Technologies
+      </p>
+
+      <h2 className="text-3xl font-extrabold sm:text-4xl">
+        Enterprise-grade solutions powered by global technologies.
+      </h2>
+    </div>
+
+    <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-6">
+
+      {[
+        "AWS",
+        "Microsoft Azure",
+        "Google Cloud",
+        "Docker",
+        "Kubernetes",
+        "Next.js",
+      ].map((item) => (
+        <div
+          key={item}
+          className="rounded-2xl border border-white/10 bg-slate-900/60 px-4 py-6 text-center font-bold text-slate-200 transition hover:border-cyan-300 hover:text-cyan-300"
+        >
+          {item}
+        </div>
+      ))}
+
+    </div>
+  </div>
+</section>
+
 <section className="relative z-10 border-y border-white/10 bg-white/[0.03] backdrop-blur-xl">
   <div className="mx-auto flex max-w-7xl flex-col gap-8 px-4 py-8 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
 
@@ -405,7 +457,12 @@ export default function IconovousHomepage() {
 
 <div className="mb-14 h-px w-full bg-gradient-to-r from-transparent via-cyan-400/20 to-transparent" />
 
-      <section id="services" className="relative z-10 mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
+      <motion.section
+  id="services"
+  initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.7 }} className="relative z-10 mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
         <div className="mb-10 max-w-3xl">
           <p className="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-cyan-300">Our Services</p>
           <h2 className="text-3xl font-extrabold tracking-tight sm:text-5xl">Complete IT solutions for modern organizations.</h2>
@@ -421,11 +478,16 @@ export default function IconovousHomepage() {
             </motion.div>
           ))}
         </div>
-      </section>
+      </motion.section>
 
 <div className="mb-14 h-px w-full bg-gradient-to-r from-transparent via-cyan-400/20 to-transparent" />
 
-      <section id="solutions" className="relative z-10 mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
+      <motion.section
+  id="solutions"
+  initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.7 }} className="relative z-10 mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
         <div className="grid gap-8 rounded-[2rem] border border-white/10 bg-white/[0.06] p-6 backdrop-blur-xl lg:grid-cols-2 lg:p-10">
           <div>
             <p className="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-cyan-300">Why ICONOVOUS</p>
@@ -440,11 +502,16 @@ export default function IconovousHomepage() {
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
 <div className="mb-14 h-px w-full bg-gradient-to-r from-transparent via-cyan-400/20 to-transparent" />
 
-      <section id="industries" className="relative z-10 mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
+      <motion.section
+  id="industries"
+  initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.7 }} className="relative z-10 mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
         <div className="mb-10 flex flex-col justify-between gap-4 lg:flex-row lg:items-end">
           <div>
             <p className="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-cyan-300">Industries</p>
@@ -461,11 +528,16 @@ export default function IconovousHomepage() {
             </div>
           ))}
         </div>
-      </section>
+      </motion.section>
 
 <div className="mb-14 h-px w-full bg-gradient-to-r from-transparent via-cyan-400/20 to-transparent" />
 
-      <section id="contact" className="relative z-10 mx-auto max-w-7xl px-4 py-28 sm:px-6 lg:px-8">
+      <motion.section
+  id="contact"
+  initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.7 }} className="relative z-10 mx-auto max-w-7xl px-4 py-28 sm:px-6 lg:px-8">
         <div className="rounded-[2.5rem] bg-gradient-to-br from-cyan-300 to-blue-500 p-8 text-slate-950 shadow-2xl shadow-cyan-500/20 sm:p-12 lg:p-16">
           <div className="grid gap-8 lg:grid-cols-[1.3fr_0.7fr] lg:items-center">
             <div>
@@ -532,11 +604,11 @@ export default function IconovousHomepage() {
 </form>
           </div>
         </div>
-      </section>
+      </motion.section>
 
 <div className="mb-14 h-px w-full bg-gradient-to-r from-transparent via-cyan-400/20 to-transparent" />
 
-      <section className="relative z-10 mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+      <motion.section className="relative z-10 mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
         <div className="rounded-[2rem] border border-cyan-300/10 bg-gradient-to-br from-slate-900 to-slate-950 p-8 shadow-2xl">
           <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
             <div>
@@ -551,7 +623,7 @@ export default function IconovousHomepage() {
             <div className="flex flex-col gap-4 sm:flex-row">
               <a
                 href="#contact"
-                className="inline-flex items-center justify-center rounded-full bg-cyan-300 px-7 py-4 font-extrabold text-slate-950 transition hover:scale-[1.03] hover:bg-white active:scale-95"
+                className="inline-flex items-center justify-center rounded-full bg-cyan-300 px-7 py-4 shadow-xl shadow-cyan-400/20 font-extrabold text-slate-950 transition hover:scale-[1.03] hover:bg-white active:scale-95"
               >
                 Schedule Consultation
               </a>
@@ -565,7 +637,7 @@ export default function IconovousHomepage() {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       <footer className="relative z-10 border-t border-white/10 px-4 py-10 sm:px-6 lg:px-8">
       <div className="mx-auto flex max-w-7xl flex-col justify-between gap-6 text-sm text-slate-400 lg:flex-row lg:items-center">
@@ -628,6 +700,20 @@ export default function IconovousHomepage() {
 
 </div>
       </footer>
+      {/* FLOATING WHATSAPP BUTTON */}
+
+<a
+  href="https://wa.me/2348167802629"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="fixed bottom-6 right-6 z-50 flex items-center gap-3 rounded-full bg-green-500 px-5 py-4 text-white shadow-2xl shadow-green-500/30 transition duration-300 hover:scale-105 hover:bg-green-400"
+>
+  <FaWhatsapp className="h-6 w-6" />
+
+  <span className="hidden font-bold sm:inline">
+    Chat with us
+  </span>
+</a>
     </main>
   );
 }
