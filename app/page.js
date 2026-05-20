@@ -776,7 +776,7 @@ export default function IconovousHomepage() {
 
                 <p>Phone: +234 816 780 2629</p>
 
-                <p>Lagos, Nigeria</p>
+                <p>21 Admiralty Way, Lagos State, Nigeria</p>
 
               </div>
             </div>
@@ -1000,7 +1000,7 @@ export default function IconovousHomepage() {
   </a>
 
   <a
-    href="https://instagram.com/iconovous"
+    href="https://instagram.com/iconovous-limited"
     target="_blank"
     rel="noopener noreferrer"
     className="rounded-full border border-white/10 bg-white/[0.03] p-3 transition duration-300 hover:-translate-y-1 hover:shadow-lg"
@@ -1009,7 +1009,7 @@ export default function IconovousHomepage() {
   </a>
 
   <a
-    href="https://linkedin.com"
+    href="https://linkedin.com/company/iconovous-holdings-limited"
     target="_blank"
     rel="noopener noreferrer"
     className="rounded-full border border-white/10 bg-white/[0.03] p-3 transition duration-300 hover:-translate-y-1 hover:shadow-lg"
