@@ -244,17 +244,21 @@ export default function IconovousHomepage() {
             Book Consultation
           </a>
 
+<div className="flex items-center gap-3">
+
           <button
-  aria-label="Toggle Menu"
-  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-  className="rounded-xl border border-white/10 bg-white/[0.06] backdrop-blur-2xl p-2 transition hover:border-cyan-300 lg:hidden"
->
+            aria-label="Toggle Menu"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="rounded-xl border border-white/10 bg-white/[0.06] backdrop-blur-2xl p-2 transition hover:border-cyan-300 lg:hidden"
+            >
             <Menu
                 className={`h-6 w-6 transition-transform duration-300 ${
                 mobileMenuOpen ? "rotate-90" : ""
               }`}
             />
           </button>
+</div>
+
           <button
             onClick={() => setDarkMode(!darkMode)}
             className="rounded-xl border border-white/10 bg-white/5 p-3 transition duration-300 hover:scale-105"
@@ -999,13 +1003,13 @@ export default function IconovousHomepage() {
 
 <section className="relative z-10 px-4 py-20 sm:px-6 lg:px-8">
 
-  <div className="mx-auto max-w-5xl rounded-[2rem] border border-white/10 bg-white/[0.04] p-10 text-center backdrop-blur-xl">
+  <div className="mx-auto max-w-5xl rounded-[2rem] border border-white/10 bg-white/5 dark:bg-white/[0.04] p-10 text-center backdrop-blur-xl">
 
     <h2 className="text-4xl font-extrabold">
       Stay updated with enterprise innovation.
     </h2>
 
-    <p className="mx-auto mt-5 max-w-2xl text-slate-300">
+    <p className="mx-auto mt-5 max-w-2xltext-slate-700 dark:text-slate-300">
       Receive updates about technology trends, enterprise solutions,
       upcoming events, and innovation opportunities.
     </p>

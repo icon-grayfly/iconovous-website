@@ -22,13 +22,26 @@ import {
 } from "react-icons/fa";
 
 const events = [
-  {
+ {
+    title: "REDeFiNE TOMORROW 2026",
+    date: "June 4–5, 2026",
+    location: "Global Web3 & AI Summit",
+    image: "/redefine2026.jpg",
+    description:
+        "The REDeFiNE TOMORROW 2026 stage brings together global builders, leading VCs, and institutional pioneers moving technology into sustainable real-world infrastructure. Explore AI x Digital Assets, Stablecoins, RWA Tokenization, DeFi ecosystems, institutional finance integration, regulation, and capital markets innovation.",
+    ticketLink:
+        "https://redefinetomorrow2026.scb10x.com/register",
+ },
+  
+    {
     title: "ICONOVOUS Tech Summit 2026",
     date: "August 24, 2026",
     location: "Lagos, Nigeria",
     image: "/event1.jpg",
     description:
       "Enterprise technology summit focused on AI, cloud infrastructure, cybersecurity, DevOps, and digital transformation.",
+    ticketLink:
+        "https://www.eventbrite.com/e/iconovous-tech-summit-2026-tickets-1234567890",
   },
 
   {
@@ -38,6 +51,8 @@ const events = [
     image: "/event2.jpg",
     description:
       "Exploring the next generation of AI automation, enterprise systems, and intelligent innovation.",
+    ticketLink:
+        "https://www.eventbrite.com/e/future-of-ai-conference-tickets-1234567890",
   },
 
   {
@@ -47,11 +62,16 @@ const events = [
     image: "/event3.jpg",
     description:
       "Connecting startups, investors, enterprise leaders, and innovators shaping Africa's future.",
+    ticketLink:
+        "https://www.eventbrite.com/e/startup-innovation-expo-tickets-1234567890",
   },
 ];
 
 export default function EventsPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [expandedEvent, setExpandedEvent] = useState(null);
   const [darkMode, setDarkMode] = useState(false);
 
   return (
@@ -300,7 +320,10 @@ export default function EventsPage() {
               className="group overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] shadow-2xl backdrop-blur-xl transition"
             >
 
-              <div className="relative h-64 overflow-hidden">
+              <div
+                onClick={() => setSelectedImage(event.image)}
+                className="relative h-64 cursor-pointer overflow-hidden"
+            >
 
                 <Image
                     src={event.image}
@@ -332,27 +355,41 @@ export default function EventsPage() {
                   {event.location}
                 </div>
 
-                <p className="mt-5 leading-7 text-slate-300">
-                  {event.description}
-                </p>
+                <motion.p
+                    layout
+                    className="mt-5 leading-7 text-slate-300"
+                >
+                    {expandedEvent === i
+                        ? event.description
+                        : `${event.description.slice(0, 120)}...`}
+                </motion.p>
 
                 <div className="mt-8 flex gap-4">
 
-                  <button className="inline-flex items-center gap-2 rounded-full bg-cyan-300 px-6 py-3 font-bold text-slate-950 transition duration-300 hover:scale-[1.03] hover:bg-white">
+                  <a
+                    href={event.ticketLink || "#"}
+                    target="_blank"
+                    rel="noopener noreferrer"
+  className="inline-flex items-center gap-2 rounded-full bg-cyan-300 px-6 py-3 font-bold text-slate-950 transition duration-300 hover:scale-[1.03] hover:bg-white"
+>
+  <Ticket className="h-5 w-5" />
+  Tickets
+</a>
 
-                    <Ticket className="h-5 w-5" />
+                  <button
+                    onClick={() =>
+                        setExpandedEvent(expandedEvent === i ? null : i)
+                    }
+                    className="inline-flex items-center gap-2 rounded-full border border-white/10 px-6 py-3 font-bold transition hover:border-cyan-300 hover:text-cyan-300"
+                  >
+                    {expandedEvent === i ? "Collapse" : "More"}
 
-                    Get Tickets
-
-                  </button>
-
-                  <button className="inline-flex items-center gap-2 rounded-full border border-white/10 px-6 py-3 font-bold transition hover:border-cyan-300 hover:text-cyan-300">
-
-                    Learn More
-
-                    <ArrowRight className="h-5 w-5" />
-
-                  </button>
+                    <ArrowRight
+                      className={`h-5 w-5 transition duration-300 ${
+                        expandedEvent === i ? "rotate-90" : ""
+                      }`}
+                    />
+                    </button>
 
                 </div>
               </div>
@@ -476,6 +513,49 @@ export default function EventsPage() {
   </div>
 </div>
       </footer>
+
+{/* FLOATING WHATSAPP BUTTON */}
+
+<a
+  href="https://wa.me/2348167802629"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="fixed bottom-6 right-6 z-50 flex items-center gap-3 rounded-full bg-green-500 px-5 py-4 text-white shadow-2xl shadow-green-500/30 transition duration-300 hover:scale-105 hover:bg-green-400"
+>
+  <FaWhatsapp className="h-6 w-6" />
+
+  <span className="hidden font-bold sm:inline">
+    Chat with us
+  </span>
+</a>
+
+{/* IMAGE MODAL */}
+
+{selectedImage && (
+
+  <div className="fixed inset-0 z-[999] flex items-center justify-center bg-black/80 p-4 backdrop-blur-md">
+
+    <button
+      onClick={() => setSelectedImage(null)}
+      className="absolute right-6 top-6 rounded-full bg-white/10 p-3 text-white transition hover:bg-white hover:text-black"
+    >
+      ✕
+    </button>
+
+    <div className="relative h-[85vh] w-full max-w-5xl overflow-hidden rounded-[2rem]">
+
+      <Image
+        src={selectedImage}
+        alt="Expanded Event"
+        fill
+        sizes="100vw"
+        className="object-contain"
+      />
+
+    </div>
+
+  </div>
+)}
 
     </main>
   );
