@@ -244,32 +244,33 @@ export default function IconovousHomepage() {
             Book Consultation
           </a>
 
-<div className="flex items-center gap-3">
+  {/* RIGHT ACTIONS */}
 
-          <button
-            aria-label="Toggle Menu"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="rounded-xl border border-white/10 bg-white/[0.06] backdrop-blur-2xl p-2 transition hover:border-cyan-300 lg:hidden"
-            >
-            <Menu
-                className={`h-6 w-6 transition-transform duration-300 ${
-                mobileMenuOpen ? "rotate-90" : ""
-              }`}
-            />
-          </button>
+<div className="flex items-center gap-3 lg:hidden">
+
+  {/* THEME TOGGLE */}
+
+  <button
+    onClick={() => setDarkMode(!darkMode)}
+    aria-label="Toggle Theme"
+    className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/[0.05] transition hover:border-cyan-300"
+  >
+    {darkMode ? "🌙" : "☀️"}
+  </button>
+
+  {/* MOBILE MENU */}
+
+  <button
+    onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+    aria-label="Toggle Menu"
+    className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/[0.05] transition hover:border-cyan-300"
+  >
+    <Menu className="h-5 w-5" />
+  </button>
+
 </div>
-
-          <button
-            onClick={() => setDarkMode(!darkMode)}
-            className="rounded-xl border border-white/10 bg-white/5 p-3 transition duration-300 hover:scale-105"
-          >
-            {darkMode ? (
-              <Sun className="h-5 w-5 text-yellow-300" />
-            ) : (
-              <Moon className="h-5 w-5 text-slate-900" />
-            )}
-          </button>
         </nav>
+
         {mobileMenuOpen && (
             <motion.div
                 initial={{ opacity: 0, y: -15 }}
