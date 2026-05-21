@@ -26,18 +26,36 @@ const events = [
     title: "REDeFiNE TOMORROW 2026",
     date: "June 4–5, 2026",
     location: "Global Web3 & AI Summit",
-    image: "/redefine2026.jpg",
+    image: [
+        "/redefine1.jpg",
+        "/redefine2.jpg",
+        "/redefine3.jpg",
+    ],
     description:
         "The REDeFiNE TOMORROW 2026 stage brings together global builders, leading VCs, and institutional pioneers moving technology into sustainable real-world infrastructure. Explore AI x Digital Assets, Stablecoins, RWA Tokenization, DeFi ecosystems, institutional finance integration, regulation, and capital markets innovation.",
     ticketLink:
         "https://redefinetomorrow2026.scb10x.com/register",
  },
   
+{
+  title: "Accelerate Conference 2026",
+  date: "2026",
+  location: "PISTIS Conference Centre, Lekki, Lagos, Nigeria",
+  images: [
+    "/accelerate1.jpg",
+    "/accelerate2.jpg",
+    "/accelerate3.jpg",
+  ],
+  ticketLink: "https://elevationng.org/accelerate/",
+  description:
+    "Accelerate Conference 2026 is a transformational faith experience where lives are changed through powerful worship, teaching, healing, and spiritual encounters. Families, leaders, innovators, and believers gather yearly to encounter divine transformation and renewed purpose...",
+},
+
     {
     title: "ICONOVOUS Tech Summit 2026",
     date: "August 24, 2026",
     location: "Lagos, Nigeria",
-    image: "/event1.jpg",
+    image: ["/event1.jpg"],
     description:
       "Enterprise technology summit focused on AI, cloud infrastructure, cybersecurity, DevOps, and digital transformation.",
     ticketLink:
@@ -48,7 +66,7 @@ const events = [
     title: "Future of AI Conference",
     date: "September 12, 2026",
     location: "Abuja, Nigeria",
-    image: "/event2.jpg",
+    image: ["/event2.jpg"],
     description:
       "Exploring the next generation of AI automation, enterprise systems, and intelligent innovation.",
     ticketLink:
@@ -59,7 +77,7 @@ const events = [
     title: "Startup Innovation Expo",
     date: "October 03, 2026",
     location: "Victoria Island, Lagos",
-    image: "/event3.jpg",
+    image: ["/event3.jpg"],
     description:
       "Connecting startups, investors, enterprise leaders, and innovators shaping Africa's future.",
     ticketLink:
@@ -325,13 +343,42 @@ export default function EventsPage() {
                 className="relative h-64 cursor-pointer overflow-hidden"
             >
 
-                <Image
-                    src={event.image}
-                    alt={event.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    className="object-cover transition duration-700 group-hover:scale-110"
-                />
+                <div className="relative h-64 overflow-hidden">
+
+                    <motion.div
+                        animate={{
+                            x: ["0%", "-100%"],
+                        }}
+                        transition={{
+                            repeat: Infinity,
+                            duration: 14,
+                            ease: "linear",
+                        }}
+                        className="flex h-full w-[300%]"
+                    >
+
+                        {event.images?.map((img, index) => (
+                            <div
+                                key={index}
+                                className="relative h-full min-w-full"
+                            >
+
+                                <Image
+                                    src={img}
+                                    alt={event.title}
+                                    fill
+                                    sizes="(max-width: 768px) 100vw, 33vw"
+                                    className="object-cover"
+                                />
+
+                            </div>
+                        ))}
+
+                    </motion.div>
+
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
+
+                </div>
 
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
 
@@ -367,14 +414,14 @@ export default function EventsPage() {
                 <div className="mt-8 flex gap-4">
 
                   <a
-                    href={event.ticketLink || "#"}
+                    href={event.ticketLink}
                     target="_blank"
                     rel="noopener noreferrer"
-  className="inline-flex items-center gap-2 rounded-full bg-cyan-300 px-6 py-3 font-bold text-slate-950 transition duration-300 hover:scale-[1.03] hover:bg-white"
->
-  <Ticket className="h-5 w-5" />
-  Tickets
-</a>
+                    className="inline-flex items-center gap-2 rounded-full bg-cyan-300 px-6 py-3 font-bold text-slate-950 transition duration-300 hover:scale-[1.03] hover:bg-white"
+                  >
+                    <Ticket className="h-5 w-5" />
+                    Tickets
+                  </a>
 
                   <button
                     onClick={() =>
