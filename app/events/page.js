@@ -26,7 +26,7 @@ const events = [
     title: "REDeFiNE TOMORROW 2026",
     date: "June 4–5, 2026",
     location: "Global Web3 & AI Summit",
-    image: [
+    images: [
         "/redefine1.jpg",
         "/redefine2.jpg",
         "/redefine3.jpg",
@@ -39,7 +39,7 @@ const events = [
   
 {
   title: "Accelerate Conference 2026",
-  date: "2026",
+  date: "Wednesday, June 4 - Sunday, June 5, 2026",
   location: "PISTIS Conference Centre, Lekki, Lagos, Nigeria",
   images: [
     "/accelerate1.jpg",
@@ -55,7 +55,9 @@ const events = [
     title: "ICONOVOUS Tech Summit 2026",
     date: "August 24, 2026",
     location: "Lagos, Nigeria",
-    image: ["/event1.jpg"],
+    images: [
+        "/event1.jpg"
+    ],
     description:
       "Enterprise technology summit focused on AI, cloud infrastructure, cybersecurity, DevOps, and digital transformation.",
     ticketLink:
@@ -66,7 +68,9 @@ const events = [
     title: "Future of AI Conference",
     date: "September 12, 2026",
     location: "Abuja, Nigeria",
-    image: ["/event2.jpg"],
+    images: [
+        "/event2.jpg"
+    ],
     description:
       "Exploring the next generation of AI automation, enterprise systems, and intelligent innovation.",
     ticketLink:
@@ -77,7 +81,9 @@ const events = [
     title: "Startup Innovation Expo",
     date: "October 03, 2026",
     location: "Victoria Island, Lagos",
-    image: ["/event3.jpg"],
+    images: [
+        "/event3.jpg"
+    ],
     description:
       "Connecting startups, investors, enterprise leaders, and innovators shaping Africa's future.",
     ticketLink:
@@ -88,7 +94,8 @@ const events = [
 export default function EventsPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedEventImages, setSelectedEventImages] = useState([]);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(null);
   const [expandedEvent, setExpandedEvent] = useState(null);
   const [darkMode, setDarkMode] = useState(false);
 
@@ -167,12 +174,14 @@ export default function EventsPage() {
             <Link href="/events" className="hover:text-cyan-300">
               Events
             </Link>
-            <a href="#contact" className="hover:text-cyan-300">Contact</a>
+            <Link href="/contact" className="hover:text-cyan-300">
+                Contact
+            </Link>
           </div>
 
-          <a href="#contact" className="hidden rounded-full bg-white px-5 py-2.5 text-sm font-bold text-slate-950 transition hover:bg-cyan-200 lg:inline-flex">
+          <Link href="/contact" className="hidden rounded-full bg-white px-5 py-2.5 text-sm font-bold text-slate-950 transition hover:bg-cyan-200 lg:inline-flex">
             Book Consultation
-          </a>
+          </Link>
 
           <button
   aria-label="Toggle Menu"
@@ -185,16 +194,6 @@ export default function EventsPage() {
               }`}
             />
           </button>
-          <button
-            onClick={() => setDarkMode(!darkMode)}
-            className="rounded-xl border border-white/10 bg-white/5 p-3 transition duration-300 hover:scale-105"
-          >
-            {darkMode ? (
-              <Sun className="h-5 w-5 text-yellow-300" />
-            ) : (
-              <Moon className="h-5 w-5 text-slate-900" />
-            )}
-          </button>
         </nav>
         {mobileMenuOpen && (
             <motion.div
@@ -206,6 +205,17 @@ export default function EventsPage() {
             >
   <motion.div className="border-t border-white/10 bg-slate-950/95 px-6 py-6 backdrop-blur-xl lg:hidden">
     <div className="flex flex-col gap-5 text-lg font-semibold text-white">
+
+        <button
+            onClick={() => setDarkMode(!darkMode)}
+            className="rounded-xl border border-white/10 bg-white/5 p-3 transition duration-300 hover:scale-105"
+          >
+            {darkMode ? (
+              <Sun className="h-5 w-5 text-yellow-300" />
+            ) : (
+              <Moon className="h-5 w-5 text-slate-900" />
+            )}
+          </button>
 
       <a
         href="#services"
@@ -239,13 +249,13 @@ export default function EventsPage() {
         Events
       </Link>
 
-      <a
-        href="#contact"
+      <Link
+        href="/contact"
         onClick={() => setMobileMenuOpen(false)}
         className="transition hover:text-cyan-300"
       >
         Contact
-      </a>
+      </Link>
 
     </div>
     </motion.div>
@@ -333,56 +343,55 @@ export default function EventsPage() {
               transition={{ delay: i * 0.15 }}
               viewport={{ once: true }}
               whileHover={{
-                y: -10,
+                y: -8,
               }}
               className="group overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] shadow-2xl backdrop-blur-xl transition"
             >
 
-              <div
-                onClick={() => setSelectedImage(event.image)}
-                className="relative h-64 cursor-pointer overflow-hidden"
-            >
+{/* EVENT IMAGE */}
 
-                <div className="relative h-64 overflow-hidden">
+<div className="relative h-64 overflow-hidden bg-black">
 
-                    <motion.div
-                        animate={{
-                            x: ["0%", "-100%"],
-                        }}
-                        transition={{
-                            repeat: Infinity,
-                            duration: 14,
-                            ease: "linear",
-                        }}
-                        className="flex h-full w-[300%]"
-                    >
+  <motion.div
+    animate={{
+      x: ["0%", `-${(event.images.length - 1) * 100}%`],
+    }}
+    transition={{
+      repeat: Infinity,
+      duration: event.images.length * 4,
+      ease: "linear",
+    }}
+    className="flex h-full"
+  >
 
-                        {event.images?.map((img, index) => (
-                            <div
-                                key={index}
-                                className="relative h-full min-w-full"
-                            >
+    {event.images.map((img, index) => (
+      <div
+        key={index}
+        className="relative min-w-full cursor-pointer overflow-hidden"
+        onClick={() => {
+          setSelectedImageIndex(index);
+          setSelectedEventImages(event.images);
+        }}
+      >
 
-                                <Image
-                                    src={img}
-                                    alt={event.title}
-                                    fill
-                                    sizes="(max-width: 768px) 100vw, 33vw"
-                                    className="object-cover"
-                                />
+        <Image
+            src={img}
+            alt={event.title}
+            fill
+            priority={i === 0 && index === 0}
+            loading={i === 0 && index === 0 ? "eager" : "lazy"}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className="object-cover transition duration-700 hover:scale-110"
+        />
 
-                            </div>
-                        ))}
+      </div>
+    ))}
 
-                    </motion.div>
+  </motion.div>
 
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
+  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
 
-                </div>
-
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
-
-              </div>
+</div>
 
               <div className="p-7">
 
@@ -505,9 +514,11 @@ export default function EventsPage() {
         Events
       </Link>
 
-      <a href="#contact" className="transition hover:text-cyan-300">
+      <Link
+       href="/contact" 
+       className="transition hover:text-cyan-300">
         Contact
-      </a>
+      </Link>
 
     </div>
 
@@ -576,30 +587,68 @@ export default function EventsPage() {
   </span>
 </a>
 
-{/* IMAGE MODAL */}
+{/* FULL-SCREEN IMAGE MODAL */}
 
-{selectedImage && (
+{/* FULLSCREEN IMAGE PREVIEW */}
 
-  <div className="fixed inset-0 z-[999] flex items-center justify-center bg-black/80 p-4 backdrop-blur-md">
+{selectedImageIndex !== null && (
+  <div className="fixed inset-0 z-[999] flex items-center justify-center bg-black/90 p-4">
 
-    <button
-      onClick={() => setSelectedImage(null)}
-      className="absolute right-6 top-6 rounded-full bg-white/10 p-3 text-white transition hover:bg-white hover:text-black"
+    {/* CLOSE BUTTON */}
+
+      <button
+        onClick={() => {
+            setSelectedImageIndex(null);
+            setSelectedEventImages([]);
+        }}
+        className="absolute right-6 top-6 z-[1000] flex h-14 w-14 items-center justify-center rounded-full border border-white/10 bg-black/40 text-4xl font-light text-white backdrop-blur-xl transition duration-300 hover:scale-110 hover:border-cyan-300 hover:bg-cyan-300 hover:text-black"
     >
-      ✕
+        ×
     </button>
 
-    <div className="relative h-[85vh] w-full max-w-5xl overflow-hidden rounded-[2rem]">
+    {/* LEFT ARROW */}
+
+    <button
+      onClick={() =>
+        setSelectedImageIndex((prev) =>
+          prev === 0
+            ? selectedEventImages.length - 1
+            : prev - 1
+        )
+      }
+      className="absolute left-4 top-1/2 z-50 -translate-y-1/2 rounded-full bg-white/10 p-4 text-3xl text-white backdrop-blur-xl transition hover:bg-cyan-300 hover:text-black"
+    >
+      ‹
+    </button>
+
+    {/* IMAGE */}
+
+    <div className="relative h-[85vh] w-full max-w-5xl">
 
       <Image
-        src={selectedImage}
-        alt="Expanded Event"
+        src={selectedEventImages?.[selectedImageIndex] || "/fallback.jpg"}
+        alt="Event Preview"
         fill
-        sizes="100vw"
-        className="object-contain"
+        sizes="(max-width: 768px) 95vw, (max-width: 1400px) 80vw, 1200px"
+        className="object-contain"        
       />
 
     </div>
+
+    {/* RIGHT ARROW */}
+
+    <button
+      onClick={() =>
+        setSelectedImageIndex((prev) =>
+          prev === selectedEventImages.length - 1
+            ? 0
+            : prev + 1
+        )
+      }
+      className="absolute right-4 top-1/2 z-50 -translate-y-1/2 rounded-full bg-white/10 p-4 text-3xl text-white backdrop-blur-xl transition hover:bg-cyan-300 hover:text-black"
+    >
+      ›
+    </button>
 
   </div>
 )}
