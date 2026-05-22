@@ -378,8 +378,8 @@ export default function EventsPage() {
             src={img}
             alt={event.title}
             fill
-            priority={i === 0 && index === 0}
-            loading={i === 0 && index === 0 ? "eager" : "lazy"}
+            priority={i < 2 && index === 0}
+            loading={i < 2 && index === 0 ? "eager" : "lazy"}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="object-cover transition duration-700 hover:scale-110"
         />
