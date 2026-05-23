@@ -1149,9 +1149,11 @@ export default function IconovousHomepage() {
         Events
       </Link>
 
-      <a href="#contact" className="transition hover:text-cyan-300">
+      <Link
+       href="/contact" 
+       className="transition hover:text-cyan-300">
         Contact
-      </a>
+      </Link>
 
     </div>
 
