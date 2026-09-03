@@ -5,6 +5,8 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import CountUp from "react-countup";
+import FloatingTools from "./components/FloatingTools";
+import AdvertCarousel from "./components/AdvertCarousel";
 import {
   Cloud,
   ShieldCheck,
@@ -96,14 +98,13 @@ export default function IconovousHomepage() {
 
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
-  const [globalSearchOpen, setGlobalSearchOpen] = useState(false);
   const currentYear = 2026;
   return (
     <motion.main
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
-      className={`min-h-screen overflow-hidden transition-colors duration-500 ${
+      className={`min-h-screen overflow-hidden pt-28 transition-colors duration-500 ${
         darkMode
           ? "bg-slate-950 text-white"
           : "bg-white text-slate-950"
@@ -170,7 +171,7 @@ export default function IconovousHomepage() {
 
   {/* LIVE ENTERPRISE MARQUEE */}
 
-<section className="relative z-10 overflow-hidden border-y border-cyan-400/10 bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-violet-500/10 backdrop-blur-xl">
+<section className="hidden">
 
   <div className="flex overflow-hidden py-4">
 
@@ -211,8 +212,9 @@ export default function IconovousHomepage() {
 </section>
 
 {/* HEADER SECTION */}
-      <header className="sticky top-0 z-50 border-b border-white/10 bg-slate-950/80 backdrop-blur-2xl supports-[backdrop-filter]:bg-slate-950/60">
-        <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-5 sm:px-6 lg:px-8">
+      <header className="fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-slate-950/65 backdrop-blur-2xl supports-[backdrop-filter]:bg-slate-950/50">
+        <AdvertCarousel />
+        <nav className="mx-auto flex max-w-[1400px] items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
           <div className="flex items-center">
             <Link 
                 href="/" 
@@ -239,14 +241,16 @@ export default function IconovousHomepage() {
               Events
             </Link>
             <a href="#contact" className="hover:text-cyan-300">Contact</a>
-            <a href="https://www.google.com/" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-300">
-              CyberSpace
-            </a>
           </div>
 
-          <a href="#contact" className="hidden rounded-full bg-white px-5 py-2.5 text-sm font-bold text-slate-950 transition hover:bg-cyan-200 lg:inline-flex">
-            Book Consultation
-          </a>
+          <div className="hidden items-center gap-3 lg:flex">
+            <a href="https://www.google.com/" target="_blank" rel="noopener noreferrer" className="rounded-full border border-cyan-300/50 bg-cyan-300/10 px-4 py-2.5 text-sm font-bold text-cyan-100 transition hover:border-cyan-200 hover:bg-cyan-300/20">
+              CyberSpace
+            </a>
+            <a href="#contact" className="rounded-full bg-white px-5 py-2.5 text-sm font-bold text-slate-950 transition hover:bg-cyan-200">
+              Book Consultation
+            </a>
+          </div>
 
   {/* RIGHT ACTIONS */}
 
@@ -1221,31 +1225,7 @@ export default function IconovousHomepage() {
 </div>
       </footer>
       
-{/* FLOATING ACTIONS */}
-
-<div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
-  {globalSearchOpen && (
-    <div id="global-search-resources" role="dialog" aria-label="Global Search resources" className="w-[min(20rem,calc(100vw-3rem))] rounded-2xl border border-cyan-300/20 bg-slate-900/95 p-5 text-left shadow-2xl shadow-cyan-950/40 backdrop-blur-xl">
-      <div className="flex items-start justify-between gap-4">
-        <div>
-          <h2 className="font-bold text-white">Welcome to Global Search</h2>
-          <p className="mt-2 text-sm leading-6 text-slate-300">Explore trusted open-source resources.</p>
-        </div>
-        <button type="button" aria-label="Close Global Search" onClick={() => setGlobalSearchOpen(false)} className="text-xl leading-none text-slate-400 transition hover:text-white">&times;</button>
-      </div>
-      <div className="mt-4 flex flex-wrap gap-2">
-        <a href="https://osintframework.com/" target="_blank" rel="noopener noreferrer" className="rounded-full bg-cyan-300 px-4 py-2 text-sm font-bold text-slate-950 transition hover:bg-white">Framework</a>
-        <a href="https://www.passportindex.org/" target="_blank" rel="noopener noreferrer" className="rounded-full border border-white/15 px-4 py-2 text-sm font-bold text-white transition hover:border-cyan-300 hover:text-cyan-300">Passport Index</a>
-      </div>
-    </div>
-  )}
-  <button type="button" aria-expanded={globalSearchOpen} aria-controls="global-search-resources" onClick={() => setGlobalSearchOpen(!globalSearchOpen)} className="rounded-full border border-cyan-300/30 bg-cyan-400 px-5 py-3 font-bold text-slate-950 shadow-2xl shadow-cyan-500/20 transition hover:scale-105 hover:bg-white">Global Search</button>
-  <a href="https://www.netacad.com/" target="_blank" rel="noopener noreferrer" className="rounded-full border border-blue-300/30 bg-blue-500 px-5 py-3 font-bold text-white shadow-2xl shadow-blue-500/20 transition hover:scale-105 hover:bg-blue-400">LMS</a>
-  <a href="https://wa.me/2348167802629" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 rounded-full bg-green-500 px-5 py-4 text-white shadow-2xl shadow-green-500/30 transition duration-300 hover:scale-105 hover:bg-green-400">
-    <FaWhatsapp className="h-6 w-6" />
-    <span className="font-bold">Chat with us</span>
-  </a>
-</div>
+<FloatingTools />
     </motion.main>
   );
 }
