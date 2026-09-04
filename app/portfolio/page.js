@@ -32,11 +32,11 @@ const portfolioItems = [
     category: "Events & Experiences",
     description:
       "A premium event experience for technology leaders, innovators, and organizations exploring AI, cloud, cybersecurity, and digital transformation.",
-    image: "/event1.jpg",
+    image: "/iconovous-event1.jpg",
     imageAlt: "Technology summit stage and event experience",
     visitLabel: "Visit event page",
     visitUrl: "/events",
-    document: null,
+    document: "/portfolio-docs/iconovous-deck.pdf",
   },
   {
     title: "Star Station Inc.",
