@@ -32,16 +32,16 @@ const portfolioItems = [
     document: null,
   },
   {
-    title: "REDeFiNE TOMORROW",
-    company: "Conference Experience",
+    title: "Star Station Inc.",
+    company: "Brand Experience",
     category: "Brand & Digital Experience",
     description:
-      "A high-energy digital showcase for a global Web3 and AI summit, connecting builders, institutional pioneers, and emerging technology communities.",
-    image: "/redefine1.jpg",
-    imageAlt: "REDeFiNE TOMORROW conference preview",
+      "Star Station is a top-rated innovative management company in Lagos, Nigeria. We engineer robust multi-sensory campaigns to expand market visibility, positioning businesses and public profiles for long-term growth.",
+    image: "/starstation.jpg",
+    imageAlt: "Star Station Inc preview",
     visitLabel: "View event",
-    visitUrl: "https://redefinetomorrow2026.scb10x.com/register",
-    document: null,
+    visitUrl: "https://starstation-beryl.vercel.app/",
+    document: "/portfolio-docs/starstation-deck.pdf",
   },
   {
     title: "Enterprise Cloud Operations",
