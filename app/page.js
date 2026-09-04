@@ -244,7 +244,7 @@ export default function IconovousHomepage() {
           </div>
 
           <div className="hidden items-center gap-3 lg:flex">
-            <a href="https://www.google.com/" target="_blank" rel="noopener noreferrer" className="rounded-full border border-cyan-300/50 bg-cyan-300/10 px-4 py-2.5 text-sm font-bold text-cyan-100 transition hover:border-cyan-200 hover:bg-cyan-300/20">
+            <a href="http://localhost:4000/" target="_blank" rel="noopener noreferrer" className="rounded-full border border-cyan-300/50 bg-cyan-300/10 px-4 py-2.5 text-sm font-bold text-cyan-100 transition hover:border-cyan-200 hover:bg-cyan-300/20">
               CyberSpace
             </a>
             <a href="#contact" className="rounded-full bg-white px-5 py-2.5 text-sm font-bold text-slate-950 transition hover:bg-cyan-200">

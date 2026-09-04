@@ -1,6 +1,6 @@
 "use client";
 
-import { Bird, GraduationCap, MessageCircle, Search, Sparkles, X } from "lucide-react";
+import { GraduationCap, MessageCircle, Search, Sparkles, X } from "lucide-react";
 import { useState } from "react";
 
 const externalLinkProps = {
@@ -22,7 +22,25 @@ export default function FloatingTools() {
       >
         <span className="ai-flight__trail" />
         <span className="ai-flight__body">
-          <Bird className="h-5 w-5" aria-hidden="true" />
+          <svg
+            className="ai-flight__bird"
+            viewBox="0 0 180 120"
+            role="img"
+            aria-label="Animated flying bird"
+          >
+            <defs>
+              <linearGradient id="ai-bird-blue" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stopColor="#67e8f9" />
+                <stop offset="0.55" stopColor="#2563eb" />
+                <stop offset="1" stopColor="#172554" />
+              </linearGradient>
+            </defs>
+            <path className="ai-flight__wing ai-flight__wing--left" d="M83 57C55 15 26 7 4 13c24 14 38 32 52 56 9 1 18-3 27-12Z" fill="url(#ai-bird-blue)" />
+            <path className="ai-flight__wing ai-flight__wing--right" d="M91 55C119 11 151 5 176 13c-25 15-42 35-57 61-10-2-19-7-28-19Z" fill="url(#ai-bird-blue)" />
+            <path d="M56 57c22-10 43-12 67 1l25 19-27 4-15 27-15-28-28-8-18-15 11 0Z" fill="#1d4ed8" />
+            <path d="M145 73l30 8-32 7Z" fill="#93c5fd" />
+            <circle cx="119" cy="60" r="3" fill="white" />
+          </svg>
           <span className="ai-flight__label">AI</span>
         </span>
       </a>
@@ -84,7 +102,7 @@ export default function FloatingTools() {
         </button>
 
         <a
-          href="https://www.netacad.com/"
+          href="https://www.udemy.com/"
           {...externalLinkProps}
           title="Learning Management System"
           className="floating-tool floating-tool--lms"

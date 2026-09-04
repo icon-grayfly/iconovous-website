@@ -125,31 +125,41 @@ body::-webkit-scrollbar {
 .ai-flight__body {
   position: relative;
   display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.75rem;
-  height: 2.25rem;
-  border: 2px solid white;
-  border-radius: 9999px;
-  background: #06b6d4;
-  filter: drop-shadow(0 8px 12px rgb(6 182 212 / 45%));
-  font-size: 0.65rem;
-  font-weight: 900;
+  width: 5.5rem;
+  height: 4.25rem;
+  filter: drop-shadow(0 10px 14px rgb(6 182 212 / 50%));
   transform: rotate(-8deg);
 }
 
-.ai-flight__body svg {
-  animation: ai-wing-flutter 700ms ease-in-out infinite alternate;
+.ai-flight__bird {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.ai-flight__wing {
+  transform-box: fill-box;
+  transform-origin: center bottom;
+  animation: ai-wing-flutter 900ms ease-in-out infinite alternate;
+}
+
+.ai-flight__wing--right {
+  animation-delay: -180ms;
+}
+
+.ai-flight:hover .ai-flight__wing,
+.ai-flight:focus-visible .ai-flight__wing {
+  animation-play-state: paused;
 }
 
 .ai-flight__label {
   position: absolute;
-  right: -0.4rem;
-  bottom: -0.45rem;
+  right: 1.2rem;
+  bottom: 0.65rem;
   border: 1px solid white;
   border-radius: 9999px;
-  background: #06b6d4;
-  padding: 0.1rem 0.3rem;
+  background: rgb(6 182 212 / 90%);
+  padding: 0.1rem 0.35rem;
   color: white;
   font-size: 0.55rem;
   font-weight: 900;
