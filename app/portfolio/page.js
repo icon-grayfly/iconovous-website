@@ -216,7 +216,7 @@ export default function PortfolioPage() {
                   aria-label={`Preview ${item.title} image`}
                   className="absolute inset-0 z-10 block w-full cursor-zoom-in text-left focus:outline-none focus-visible:ring-4 focus-visible:ring-amber-300/80"
                 >
-                  <Image src={item.image} alt={item.imageAlt} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover transition duration-700 group-hover:scale-105" />
+                  <Image src={item.image} alt={item.imageAlt} fill sizes="(max-width: 1024px) 100vw, 50vw" loading={index === 0 ? "eager" : "lazy"} className="object-cover transition duration-700 group-hover:scale-105" />
                   <span className="absolute bottom-5 right-5 rounded-full border border-white/30 bg-slate-950/70 px-3 py-2 text-xs font-bold text-white opacity-0 backdrop-blur-xl transition duration-300 group-hover:opacity-100">
                     Click to preview
                   </span>
