@@ -29,7 +29,7 @@ const portfolioItems = [
   {
     title: "ICONOVOUS Tech Summit",
     company: "ICONOVOUS Holdings Limited",
-    category: "Events & Experiences",
+    category: "IT trends & Experiences",
     description:
       "A premium event experience for technology leaders, innovators, and organizations exploring AI, cloud, cybersecurity, and digital transformation.",
     image: "/iconovous-event1.jpg",
@@ -114,7 +114,7 @@ export default function PortfolioPage() {
             <a href="https://www.google.com/" {...externalLinkProps} className="rounded-full border border-cyan-300/50 bg-cyan-300/10 px-4 py-2.5 text-sm font-bold text-cyan-100 transition hover:border-cyan-200 hover:bg-cyan-300/20">
               CyberSpace
             </a>
-            <a href="https://www.google.com/" {...externalLinkProps} aria-label="Open Hub store" className="inline-flex items-center gap-2 rounded-full border border-amber-300/50 bg-amber-300/15 px-4 py-2.5 text-sm font-bold text-amber-100 transition hover:border-amber-200 hover:bg-amber-300/25">
+            <a href="https://gadget-hub-liard.vercel.app/" {...externalLinkProps} aria-label="Open Hub store" className="inline-flex items-center gap-2 rounded-full border border-amber-300/50 bg-amber-300/15 px-4 py-2.5 text-sm font-bold text-amber-100 transition hover:border-amber-200 hover:bg-amber-300/25">
               <ShoppingBag className="h-4 w-4" aria-hidden="true" />
               Hub
             </a>
@@ -143,7 +143,7 @@ export default function PortfolioPage() {
               <Link href="/events" onClick={() => setMobileMenuOpen(false)} className="transition hover:text-cyan-300">Events</Link>
               <Link href="/contact" onClick={() => setMobileMenuOpen(false)} className="transition hover:text-cyan-300">Contact</Link>
               <a href="https://www.google.com/" {...externalLinkProps} onClick={() => setMobileMenuOpen(false)} className="transition hover:text-cyan-300">CyberSpace</a>
-              <a href="https://www.google.com/" {...externalLinkProps} onClick={() => setMobileMenuOpen(false)} className="inline-flex items-center gap-2 transition hover:text-amber-300"><ShoppingBag className="h-5 w-5" aria-hidden="true" />Hub</a>
+              <a href="https://gadget-hub-liard.vercel.app/" {...externalLinkProps} onClick={() => setMobileMenuOpen(false)} className="inline-flex items-center gap-2 transition hover:text-amber-300"><ShoppingBag className="h-5 w-5" aria-hidden="true" />Hub</a>
             </div>
           </div>
         )}
