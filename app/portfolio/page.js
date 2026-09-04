@@ -35,7 +35,7 @@ const portfolioItems = [
     image: "/iconovous-event1.jpg",
     imageAlt: "Technology summit stage and event experience",
     visitLabel: "Visit event page",
-    visitUrl: "/events",
+    visitUrl: "https://cyberspace-iota.vercel.app/",
     document: "/portfolio-docs/iconovous-deck.pdf",
   },
   {
@@ -111,7 +111,7 @@ export default function PortfolioPage() {
           </div>
 
           <div className="hidden items-center gap-3 lg:flex">
-            <a href="https://www.google.com/" {...externalLinkProps} className="rounded-full border border-cyan-300/50 bg-cyan-300/10 px-4 py-2.5 text-sm font-bold text-cyan-100 transition hover:border-cyan-200 hover:bg-cyan-300/20">
+            <a href="https://cyberspace-iota.vercel.app/" {...externalLinkProps} className="rounded-full border border-cyan-300/50 bg-cyan-300/10 px-4 py-2.5 text-sm font-bold text-cyan-100 transition hover:border-cyan-200 hover:bg-cyan-300/20">
               CyberSpace
             </a>
             <a href="https://gadget-hub-liard.vercel.app/" {...externalLinkProps} aria-label="Open Hub store" className="inline-flex items-center gap-2 rounded-full border border-amber-300/50 bg-amber-300/15 px-4 py-2.5 text-sm font-bold text-amber-100 transition hover:border-amber-200 hover:bg-amber-300/25">
@@ -142,7 +142,7 @@ export default function PortfolioPage() {
               <Link href="/portfolio" onClick={() => setMobileMenuOpen(false)} className="text-cyan-300">Portfolio</Link>
               <Link href="/events" onClick={() => setMobileMenuOpen(false)} className="transition hover:text-cyan-300">Events</Link>
               <Link href="/contact" onClick={() => setMobileMenuOpen(false)} className="transition hover:text-cyan-300">Contact</Link>
-              <a href="https://www.google.com/" {...externalLinkProps} onClick={() => setMobileMenuOpen(false)} className="transition hover:text-cyan-300">CyberSpace</a>
+              <a href="https://cyberspace-iota.vercel.app/" {...externalLinkProps} onClick={() => setMobileMenuOpen(false)} className="transition hover:text-cyan-300">CyberSpace</a>
               <a href="https://gadget-hub-liard.vercel.app/" {...externalLinkProps} onClick={() => setMobileMenuOpen(false)} className="inline-flex items-center gap-2 transition hover:text-amber-300"><ShoppingBag className="h-5 w-5" aria-hidden="true" />Hub</a>
             </div>
           </div>
@@ -298,7 +298,7 @@ export default function PortfolioPage() {
               <Link href="/portfolio" className="transition hover:text-cyan-300">Portfolio</Link>
               <Link href="/events" className="transition hover:text-cyan-300">Events</Link>
               <Link href="/contact" className="transition hover:text-cyan-300">Contact</Link>
-              <a href="https://www.google.com/" {...externalLinkProps} className="transition hover:text-amber-300">Hub Store</a>
+              <a href="https://gadget-hub-liard.vercel.app/" {...externalLinkProps} className="transition hover:text-amber-300">Hub Store</a>
             </div>
           </div>
 

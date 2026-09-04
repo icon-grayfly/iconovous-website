@@ -17,8 +17,8 @@ export default function BlogPage() {
             <Link href="/portfolio" className="hover:text-cyan-300">Portfolio</Link>
             <Link href="/events" className="hover:text-cyan-300">Events</Link>
             <Link href="/contact" className="hover:text-cyan-300">Contact</Link>
-            <a href="https://www.google.com/" target="_blank" rel="noopener noreferrer" className="text-cyan-300 hover:text-white">CyberSpace</a>
-            <a href="https://www.google.com/" target="_blank" rel="noopener noreferrer" aria-label="Open Hub store" className="inline-flex items-center gap-1 text-amber-300 hover:text-amber-100"><ShoppingBag className="h-4 w-4" aria-hidden="true" />Hub</a>
+            <a href="https://cyberspace-iota.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-cyan-300 hover:text-white">CyberSpace</a>
+            <a href="https://gadget-hub-liard.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Open Hub store" className="inline-flex items-center gap-1 text-amber-300 hover:text-amber-100"><ShoppingBag className="h-4 w-4" aria-hidden="true" />Hub</a>
           </div>
         </nav>
       </header>

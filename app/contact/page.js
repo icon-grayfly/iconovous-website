@@ -115,8 +115,8 @@ export default function ContactPage() {
           </div>
 
           <div className="hidden items-center gap-3 lg:flex">
-            <a href="https://www.google.com/" target="_blank" rel="noopener noreferrer" className="rounded-full border border-cyan-300/50 bg-cyan-300/10 px-4 py-2.5 text-sm font-bold text-cyan-100 transition hover:border-cyan-200 hover:bg-cyan-300/20">CyberSpace</a>
-            <a href="https://www.google.com/" target="_blank" rel="noopener noreferrer" aria-label="Open Hub store" className="inline-flex items-center gap-2 rounded-full border border-amber-300/50 bg-amber-300/15 px-4 py-2.5 text-sm font-bold text-amber-100 transition hover:border-amber-200 hover:bg-amber-300/25"><ShoppingBag className="h-4 w-4" aria-hidden="true" />Hub</a>
+            <a href="https://cyberspace-iota.vercel.app/" target="_blank" rel="noopener noreferrer" className="rounded-full border border-cyan-300/50 bg-cyan-300/10 px-4 py-2.5 text-sm font-bold text-cyan-100 transition hover:border-cyan-200 hover:bg-cyan-300/20">CyberSpace</a>
+            <a href="https://gadget-hub-liard.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Open Hub store" className="inline-flex items-center gap-2 rounded-full border border-amber-300/50 bg-amber-300/15 px-4 py-2.5 text-sm font-bold text-amber-100 transition hover:border-amber-200 hover:bg-amber-300/25"><ShoppingBag className="h-4 w-4" aria-hidden="true" />Hub</a>
             <Link href="/contact" className="rounded-full bg-white px-5 py-2.5 text-sm font-bold text-slate-950 transition hover:bg-cyan-200">Book Consultation</Link>
           </div>
 
@@ -202,9 +202,9 @@ export default function ContactPage() {
         Contact
       </Link>
 
-      <a href="https://www.google.com/" target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)} className="transition hover:text-cyan-300">CyberSpace</a>
+      <a href="https://cyberspace-iota.vercel.app/" target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)} className="transition hover:text-cyan-300">CyberSpace</a>
 
-      <a href="https://www.google.com/" target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)} className="inline-flex items-center gap-2 transition hover:text-amber-300"><ShoppingBag className="h-5 w-5" aria-hidden="true" />Hub</a>
+      <a href="https://gadget-hub-liard.vercel.app/" target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)} className="inline-flex items-center gap-2 transition hover:text-amber-300"><ShoppingBag className="h-5 w-5" aria-hidden="true" />Hub</a>
 
     </div>
     </motion.div>
