@@ -22,6 +22,7 @@ import {
   Globe2,
   Layers3,
   Building2,
+  ShoppingBag,
 } from "lucide-react";
 
 import {
@@ -237,6 +238,9 @@ export default function IconovousHomepage() {
 >Services</a>
             <a href="#solutions" className="hover:text-cyan-300">Solutions</a>
             <a href="#industries" className="hover:text-cyan-300">Industries</a>
+            <Link href="/portfolio" className="hover:text-cyan-300">
+              Portfolio
+            </Link>
             <Link href="/events" className="hover:text-cyan-300">
               Events
             </Link>
@@ -246,6 +250,10 @@ export default function IconovousHomepage() {
           <div className="hidden items-center gap-3 lg:flex">
             <a href="http://localhost:4000/" target="_blank" rel="noopener noreferrer" className="rounded-full border border-cyan-300/50 bg-cyan-300/10 px-4 py-2.5 text-sm font-bold text-cyan-100 transition hover:border-cyan-200 hover:bg-cyan-300/20">
               CyberSpace
+            </a>
+            <a href="https://www.google.com/" target="_blank" rel="noopener noreferrer" aria-label="Open Hub store" className="inline-flex items-center gap-2 rounded-full border border-amber-300/50 bg-amber-300/15 px-4 py-2.5 text-sm font-bold text-amber-100 transition hover:border-amber-200 hover:bg-amber-300/25">
+              <ShoppingBag className="h-4 w-4" aria-hidden="true" />
+              Hub
             </a>
             <a href="#contact" className="rounded-full bg-white px-5 py-2.5 text-sm font-bold text-slate-950 transition hover:bg-cyan-200">
               Book Consultation
@@ -315,6 +323,14 @@ export default function IconovousHomepage() {
       </a>
 
       <Link
+        href="/portfolio"
+        onClick={() => setMobileMenuOpen(false)}
+        className="transition hover:text-cyan-300"
+      >
+        Portfolio
+      </Link>
+
+      <Link
         href="/events"
         onClick={() => setMobileMenuOpen(false)}
         className="transition hover:text-cyan-300"
@@ -338,6 +354,17 @@ export default function IconovousHomepage() {
         className="transition hover:text-cyan-300"
       >
         CyberSpace
+      </a>
+
+      <a
+        href="https://www.google.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={() => setMobileMenuOpen(false)}
+        className="inline-flex items-center gap-2 transition hover:text-amber-300"
+      >
+        <ShoppingBag className="h-5 w-5" aria-hidden="true" />
+        Hub
       </a>
 
     </div>

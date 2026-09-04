@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { ShoppingBag } from "lucide-react";
 import FloatingTools from "../components/FloatingTools";
 import AdvertCarousel from "../components/AdvertCarousel";
 
@@ -13,9 +14,11 @@ export default function BlogPage() {
           <Link href="/" className="font-black tracking-[0.2em] text-cyan-200">ICONOVOUS</Link>
           <div className="flex items-center gap-4 text-sm font-semibold text-slate-200 sm:gap-7">
             <Link href="/#services" className="hover:text-cyan-300">Services</Link>
+            <Link href="/portfolio" className="hover:text-cyan-300">Portfolio</Link>
             <Link href="/events" className="hover:text-cyan-300">Events</Link>
             <Link href="/contact" className="hover:text-cyan-300">Contact</Link>
             <a href="https://www.google.com/" target="_blank" rel="noopener noreferrer" className="text-cyan-300 hover:text-white">CyberSpace</a>
+            <a href="https://www.google.com/" target="_blank" rel="noopener noreferrer" aria-label="Open Hub store" className="inline-flex items-center gap-1 text-amber-300 hover:text-amber-100"><ShoppingBag className="h-4 w-4" aria-hidden="true" />Hub</a>
           </div>
         </nav>
       </header>
