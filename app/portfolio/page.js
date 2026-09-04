@@ -14,9 +14,16 @@ import {
   MonitorSmartphone,
   ShoppingBag,
   Sparkles,
+  X,
 } from "lucide-react";
 import FloatingTools from "../components/FloatingTools";
 import AdvertCarousel from "../components/AdvertCarousel";
+import {
+  FaInstagram,
+  FaLinkedin,
+  FaYoutube,
+  FaWhatsapp,
+} from "react-icons/fa";
 
 const portfolioItems = [
   {
@@ -39,7 +46,7 @@ const portfolioItems = [
       "Star Station is a top-rated innovative management company in Lagos, Nigeria. We engineer robust multi-sensory campaigns to expand market visibility, positioning businesses and public profiles for long-term growth.",
     image: "/starstation.jpg",
     imageAlt: "Star Station Inc preview",
-    visitLabel: "View event",
+    visitLabel: "Visit Star Station",
     visitUrl: "https://starstation-beryl.vercel.app/",
     document: "/portfolio-docs/starstation-deck.pdf",
   },
@@ -76,6 +83,7 @@ const externalLinkProps = {
 
 export default function PortfolioPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
 
   return (
     <main className="min-h-screen overflow-hidden bg-slate-950 pt-28 text-white">
@@ -202,9 +210,19 @@ export default function PortfolioPage() {
               className="group overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] shadow-2xl backdrop-blur-xl"
             >
               <div className="relative h-72 overflow-hidden bg-slate-900">
-                <Image src={item.image} alt={item.imageAlt} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover transition duration-700 group-hover:scale-105" />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
-                <div className="absolute bottom-5 left-6 rounded-full border border-white/20 bg-slate-950/60 px-3 py-1 text-xs font-bold uppercase tracking-[0.18em] text-amber-200 backdrop-blur-xl">{item.category}</div>
+                <button
+                  type="button"
+                  onClick={() => setSelectedImage(item)}
+                  aria-label={`Preview ${item.title} image`}
+                  className="absolute inset-0 z-10 block w-full cursor-zoom-in text-left focus:outline-none focus-visible:ring-4 focus-visible:ring-amber-300/80"
+                >
+                  <Image src={item.image} alt={item.imageAlt} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover transition duration-700 group-hover:scale-105" />
+                  <span className="absolute bottom-5 right-5 rounded-full border border-white/30 bg-slate-950/70 px-3 py-2 text-xs font-bold text-white opacity-0 backdrop-blur-xl transition duration-300 group-hover:opacity-100">
+                    Click to preview
+                  </span>
+                </button>
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
+                <div className="absolute bottom-5 left-6 z-20 rounded-full border border-white/20 bg-slate-950/60 px-3 py-1 text-xs font-bold uppercase tracking-[0.18em] text-amber-200 backdrop-blur-xl">{item.category}</div>
               </div>
 
               <div className="p-7 sm:p-8">
@@ -212,9 +230,15 @@ export default function PortfolioPage() {
                 <h3 className="mt-2 text-2xl font-extrabold">{item.title}</h3>
                 <p className="mt-4 leading-7 text-slate-300">{item.description}</p>
                 <div className="mt-7 flex flex-wrap gap-3">
-                  <Link href={item.visitUrl} {...(item.visitUrl.startsWith("http") ? externalLinkProps : {})} className="inline-flex items-center gap-2 rounded-full bg-cyan-300 px-5 py-3 text-sm font-bold text-slate-950 transition hover:bg-white">
-                    {item.visitLabel} <ExternalLink className="h-4 w-4" />
-                  </Link>
+                  {item.visitUrl.startsWith("http") ? (
+                    <a href={item.visitUrl} {...externalLinkProps} className="inline-flex items-center gap-2 rounded-full bg-cyan-300 px-5 py-3 text-sm font-bold text-slate-950 transition hover:bg-white">
+                      {item.visitLabel} <ExternalLink className="h-4 w-4" />
+                    </a>
+                  ) : (
+                    <Link href={item.visitUrl} className="inline-flex items-center gap-2 rounded-full bg-cyan-300 px-5 py-3 text-sm font-bold text-slate-950 transition hover:bg-white">
+                      {item.visitLabel} <ExternalLink className="h-4 w-4" />
+                    </Link>
+                  )}
                   {item.document && (
                     <a href={item.document} download className="inline-flex items-center gap-2 rounded-full border border-amber-300/40 px-5 py-3 text-sm font-bold text-amber-100 transition hover:border-amber-200 hover:bg-amber-300/10">
                       Download deck <Download className="h-4 w-4" />
@@ -242,16 +266,96 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-      <footer className="border-t border-white/10 px-4 py-10 sm:px-6 lg:px-8">
-        <div className="mx-auto flex max-w-7xl flex-col gap-5 text-sm text-slate-400 sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} ICONOVOUS Holdings Limited.</p>
-          <div className="flex gap-5">
-            <Link href="/" className="transition hover:text-cyan-300">Home</Link>
-            <Link href="/events" className="transition hover:text-cyan-300">Events</Link>
-            <Link href="/contact" className="transition hover:text-cyan-300">Contact</Link>
+      <footer className="relative z-10 border-t border-white/10 px-4 py-10 sm:px-6 lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-14 lg:grid-cols-3 lg:gap-20">
+          <div>
+            <Image
+              src="/logo-dark.png"
+              alt="ICONOVOUS Holdings Limited"
+              width={180}
+              height={60}
+              className="mb-4 h-auto w-[150px]"
+            />
+            <p className="max-w-md text-sm leading-8 text-slate-400">
+              ICONOVOUS Holdings Limited delivers enterprise-grade IT consulting,
+              cloud infrastructure, DevOps, cybersecurity, software engineering,
+              and AI-powered digital transformation solutions.
+            </p>
+            <div className="mt-8 border-t border-white/10 pt-6">
+              <p className="text-sm text-slate-500">
+                © {new Date().getFullYear()} ICONOVOUS Holdings Limited.
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <h3 className="mb-5 text-lg font-bold text-white">Quick Links</h3>
+            <div className="flex flex-col gap-4 text-sm text-slate-400">
+              <Link href="/" className="transition hover:text-cyan-300">Home</Link>
+              <Link href="/#services" className="transition hover:text-cyan-300">Services</Link>
+              <Link href="/#solutions" className="transition hover:text-cyan-300">Solutions</Link>
+              <Link href="/#industries" className="transition hover:text-cyan-300">Industries</Link>
+              <Link href="/portfolio" className="transition hover:text-cyan-300">Portfolio</Link>
+              <Link href="/events" className="transition hover:text-cyan-300">Events</Link>
+              <Link href="/contact" className="transition hover:text-cyan-300">Contact</Link>
+              <a href="https://www.google.com/" {...externalLinkProps} className="transition hover:text-amber-300">Hub Store</a>
+            </div>
+          </div>
+
+          <div>
+            <h3 className="mb-5 text-lg font-bold text-white">Connect With Us</h3>
+            <div className="flex items-center gap-4">
+              <a href="https://wa.me/2348167802629" {...externalLinkProps} aria-label="Chat with ICONOVOUS on WhatsApp" className="rounded-full border border-white/10 bg-white/[0.03] p-3 transition duration-300 hover:-translate-y-1 hover:border-emerald-300/60 hover:text-emerald-300 hover:shadow-lg">
+                <FaWhatsapp className="h-5 w-5" />
+              </a>
+              <a href="https://instagram.com/iconovous-limited" {...externalLinkProps} aria-label="ICONOVOUS on Instagram" className="rounded-full border border-white/10 bg-white/[0.03] p-3 transition duration-300 hover:-translate-y-1 hover:border-pink-300/60 hover:text-pink-300 hover:shadow-lg">
+                <FaInstagram className="h-5 w-5" />
+              </a>
+              <a href="https://linkedin.com/company/iconovous-holdings-limited" {...externalLinkProps} aria-label="ICONOVOUS on LinkedIn" className="rounded-full border border-white/10 bg-white/[0.03] p-3 transition duration-300 hover:-translate-y-1 hover:border-blue-300/60 hover:text-blue-300 hover:shadow-lg">
+                <FaLinkedin className="h-5 w-5" />
+              </a>
+              <a href="https://youtube.com" {...externalLinkProps} aria-label="ICONOVOUS on YouTube" className="rounded-full border border-white/10 bg-white/[0.03] p-3 transition duration-300 hover:-translate-y-1 hover:border-red-300/60 hover:text-red-300 hover:shadow-lg">
+                <FaYoutube className="h-5 w-5" />
+              </a>
+            </div>
           </div>
         </div>
       </footer>
+
+      {selectedImage && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label={`${selectedImage.title} image preview`}
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/95 p-4 backdrop-blur-md sm:p-8"
+          onClick={() => setSelectedImage(null)}
+        >
+          <button
+            type="button"
+            onClick={() => setSelectedImage(null)}
+            aria-label="Close image preview"
+            className="group absolute right-4 top-4 z-20 flex h-14 w-14 items-center justify-center rounded-full border border-cyan-200/70 bg-slate-950/80 text-cyan-100 shadow-[0_0_35px_rgba(34,211,238,0.55)] transition duration-300 hover:scale-110 hover:border-white hover:bg-cyan-300 hover:text-slate-950 focus:outline-none focus-visible:ring-4 focus-visible:ring-amber-300/80 sm:right-8 sm:top-8"
+          >
+            <span className="absolute inset-0 rounded-full border border-cyan-300/50 opacity-0 transition duration-300 group-hover:scale-125 group-hover:opacity-100" />
+            <X className="relative h-7 w-7 transition duration-300 group-hover:rotate-90" aria-hidden="true" />
+          </button>
+
+          <div className="relative h-[min(78vh,52rem)] w-full max-w-6xl" onClick={(event) => event.stopPropagation()}>
+            <Image
+              src={selectedImage.image}
+              alt={selectedImage.imageAlt}
+              fill
+              sizes="95vw"
+              className="object-contain"
+              priority
+            />
+            <div className="absolute bottom-0 left-1/2 w-full max-w-2xl -translate-x-1/2 translate-y-14 text-center">
+              <p className="text-lg font-extrabold text-white">{selectedImage.title}</p>
+              <p className="mt-1 text-sm text-slate-400">Click outside the image or use the X button to close</p>
+            </div>
+          </div>
+        </div>
+      )}
 
       <FloatingTools />
     </main>
