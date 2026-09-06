@@ -44,11 +44,23 @@ const portfolioItems = [
     category: "Brand & Digital Experience",
     description:
       "Star Station is a top-rated innovative management company in Lagos, Nigeria. We engineer robust multi-sensory campaigns to expand market visibility, positioning businesses and public profiles for long-term growth.",
-    image: "/starstation.jpg",
+    image: "/starstationinc1.jpg",
     imageAlt: "Star Station Inc preview",
     visitLabel: "Visit Star Station",
     visitUrl: "https://starstation-beryl.vercel.app/",
     document: "/portfolio-docs/starstation-deck.pdf",
+  },
+  {
+    title: "Flavour Kitchen",
+    company: "Food & Drinks Restaurant",
+    category: "App-Based Food Delivery & Cloud Kitchen",
+    description:
+      "A modern food delivery platform specializing in bold, thoughtfully packed comfort food. Offering a premium selection of meals, drinks, and special treats, the service is built around a seamless digital experience. It features live menu updates, secure checkout, and fast 20-35 minute delivery times, operating entirely through its dedicated iOS and Android applications to provide users with efficient, high-quality dining on demand.",
+    image: "/flavourkitchen.jpg",
+    imageAlt: "Flavour Kitchen preview",
+    visitLabel: "Visit Flavour Kitchen",
+    visitUrl: "https://flavour-kitchen.vercel.app/",
+    document: null,
   },
   {
     title: "Enterprise Cloud Operations",
