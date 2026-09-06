@@ -74,6 +74,18 @@ const portfolioItems = [
     visitUrl: "/contact",
     document: null,
   },
+  {
+    title: "Flavour Kitchen",
+    company: "Food & Drinks Restaurant",
+    category: "App-Based Food Delivery & Cloud Kitchen",
+    description:
+      "A modern food delivery platform specializing in bold, thoughtfully packed comfort food. Offering a premium selection of meals, drinks, and special treats, the service is built around a seamless digital experience. It features live menu updates, secure checkout, and fast 20-35 minute delivery times, operating entirely through its dedicated iOS and Android applications to provide users with efficient, high-quality dining on demand.",
+    image: "/flavourkitchen.jpg",
+    imageAlt: "Flavour Kitchen preview",
+    visitLabel: "Visit Flavour Kitchen",
+    visitUrl: "https://flavour-kitchen.vercel.app/",
+    document: null,
+  },
 ];
 
 const externalLinkProps = {
