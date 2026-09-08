@@ -14,7 +14,7 @@ export default function FloatingTools() {
   return (
     <>
       <a
-        href="https://www.google.com/"
+        href="http://localhost:3100/"
         {...externalLinkProps}
         aria-label="Open AI assistant"
         title="AI assistant"
