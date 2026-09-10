@@ -64,7 +64,7 @@ const portfolioItems = [
   },
   {
     title: "EcoKids: Ecology for Kids",
-    company: "EcoKids-Kidoons",
+    company: "EcoKids - Kidoons",
     category: "Educational Technology (EdTech)",
     description:
       "A global educational philosophy and a network of schools and digital programs dedicated to environmental sustainability, play-based learning, and hands-on discovery.",
@@ -80,7 +80,7 @@ const portfolioItems = [
     category: "Cloud & IT Operations",
     description:
       "A sample operations concept showing how secure infrastructure, monitoring, automation, and support can be brought together in one clear experience.",
-    image: "/event2.jpg",
+    image: "/enterprise-cloud-operations.jpg",
     imageAlt: "Enterprise cloud operations concept preview",
     visitLabel: "Discuss a similar build",
     visitUrl: "/contact",
@@ -88,11 +88,11 @@ const portfolioItems = [
   },
   {
     title: "Mobile Product Launch",
-    company: "Sample mobile app showcase",
+    company: "ICONOVOUS mobile app showcase",
     category: "Websites & Mobile Apps",
     description:
       "A flexible product launch canvas for mobile applications and responsive websites, with room for product screenshots, store links, and launch materials.",
-    image: "/event3.jpg",
+    image: "/product-3.jpg",
     imageAlt: "Mobile product launch concept preview",
     visitLabel: "Start a project",
     visitUrl: "/contact",
