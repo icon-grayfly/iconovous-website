@@ -63,6 +63,18 @@ const portfolioItems = [
     document: null,
   },
   {
+    title: "EcoKids: Ecology for Kids",
+    company: "EcoKids-Kidoons",
+    category: "Educational Technology (EdTech)",
+    description:
+      "A global educational philosophy and a network of schools and digital programs dedicated to environmental sustainability, play-based learning, and hands-on discovery.",
+    image: "/ecokids.jpg",
+    imageAlt: "Ecokids LMS preview",
+    visitLabel: "Visit Ecokids",
+    visitUrl: "https://ecokids.net/",
+    document: null,
+  },
+  {
     title: "Enterprise Cloud Operations",
     company: "Sample client product showcase",
     category: "Cloud & IT Operations",
