@@ -39,8 +39,8 @@ const portfolioItems = [
     document: "/portfolio-docs/iconovous-deck.pdf",
   },
   {
-    title: "Star Station Inc.",
-    company: "Brand Experience",
+    title: "Brand & Media Experience",
+    company: "Star Station Company",
     category: "Brand & Digital Experience",
     description:
       "Star Station is a top-rated innovative management company in Lagos, Nigeria. We engineer robust multi-sensory campaigns to expand market visibility, positioning businesses and public profiles for long-term growth.",
@@ -51,9 +51,9 @@ const portfolioItems = [
     document: "/portfolio-docs/starstation-deck.pdf",
   },
   {
-    title: "Flavour Kitchen",
-    company: "Food & Drinks Restaurant",
-    category: "App-Based Food Delivery & Cloud Kitchen",
+    title: "Food & Drinks Restaurant",
+    company: "Flavour Kitchen",
+    category: "Web & App-Based Food Delivery & Cloud Kitchen",
     description:
       "A modern food delivery platform specializing in bold, thoughtfully packed comfort food. Offering a premium selection of meals, drinks, and special treats, the service is built around a seamless digital experience. It features live menu updates, secure checkout, and fast 20-35 minute delivery times, operating entirely through its dedicated iOS and Android applications to provide users with efficient, high-quality dining on demand.",
     image: "/flavourkitchen.jpg",
@@ -63,7 +63,7 @@ const portfolioItems = [
     document: null,
   },
   {
-    title: "EcoKids: Ecology for Kids",
+    title: "EcoKids: Ecology for Kids (Website & App Showcase)",
     company: "EcoKids - Kidoons",
     category: "Educational Technology (EdTech)",
     description:
