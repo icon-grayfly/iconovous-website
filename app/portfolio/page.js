@@ -75,6 +75,30 @@ const portfolioItems = [
     document: null,
   },
   {
+    title: "EDVO Learning Hub – Digital EdTech & Exam Preparation Ecosystem",
+    company: "EDVO Learning Hub",
+    category: "EdTech / Product Design & E-Learning Platform",
+    description:
+      "EDVO Learning Hub is an all-in-one digital education platform designed to support students across every stage of their academic journey; from early childhood foundational skills (ages 2–13) to senior secondary exam preparation (JAMB). Built specifically around curriculum-aligned standards, the platform transforms screen time into productive, measurable learning across web and mobile devices.",
+    image: "edvo-learning-hub.jpg",
+    imageAlt: "EDVO Learning Hub preview",
+    visitLabel: "Visit EDVO Learning Hub",
+    visitUrl: "https://edvo.com.ng/",
+    document: null,
+  },
+  {
+    title: "Mobile Product Launch",
+    company: "ICONOVOUS Mobile App showcase",
+    category: "Websites & Mobile Apps",
+    description:
+      "A flexible product launch canvas for mobile applications and responsive websites, with room for product screenshots, store links, and launch materials.",
+    image: "/product-3.jpg",
+    imageAlt: "Mobile product launch concept preview",
+    visitLabel: "Start a project",
+    visitUrl: "/contact",
+    document: null,
+  },
+  {
     title: "Enterprise Cloud Operations",
     company: "Sample client product showcase",
     category: "Cloud & IT Operations",
@@ -87,18 +111,6 @@ const portfolioItems = [
     document: null,
   },
   {
-    title: "Mobile Product Launch",
-    company: "ICONOVOUS mobile app showcase",
-    category: "Websites & Mobile Apps",
-    description:
-      "A flexible product launch canvas for mobile applications and responsive websites, with room for product screenshots, store links, and launch materials.",
-    image: "/product-3.jpg",
-    imageAlt: "Mobile product launch concept preview",
-    visitLabel: "Start a project",
-    visitUrl: "/contact",
-    document: null,
-  },
-  {
     title: "Flavour Kitchen",
     company: "Food & Drinks Restaurant",
     category: "App-Based Food Delivery & Cloud Kitchen",
@@ -107,7 +119,7 @@ const portfolioItems = [
     image: "/flavourkitchen.jpg",
     imageAlt: "Flavour Kitchen preview",
     visitLabel: "Visit Flavour Kitchen",
-    visitUrl: "https://flavour-kitchen.vercel.app/",
+    visitUrl: "/contact",
     document: null,
   },
 ];
