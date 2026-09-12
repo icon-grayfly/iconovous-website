@@ -289,9 +289,17 @@ export default function ContactPage() {
             <div className="flex items-start gap-4">
               <MapPin className="mt-1 h-6 w-6 text-cyan-300" />
               <div>
-                <p className="font-bold">Location</p>
+                <p className="font-bold">Locations</p>
                 <p className="text-slate-400">
-                  Lagos, Nigeria
+                  You can reach out to us at any of these addresses for inquiries, consultations, or support.
+                </p>
+                <p className="font-bold">Headquarter</p>
+                <p className="text-slate-400">
+                  Floor 2, The  Alternative Bank Building, off Admiralty way, Martell roundabout, Lekki Phase 1, Lagos, Nigeria.
+                </p>
+                <p className="font-bold">UK Branch</p>
+                <p className="text-slate-400">
+                  85 Great Portland St, First Floor, London, W1W 7LT, United Kingdom.
                 </p>
               </div>
             </div>

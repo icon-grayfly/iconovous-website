@@ -99,6 +99,18 @@ const portfolioItems = [
     document: null,
   },
   {
+    title: "Luxury Real Estate & Curated Living Spaces",
+    company: "Embasse Properties",
+    category: "Luxury Real Estate, Property Management & Architectural Curation",
+    description:
+      "Embasse is a premier luxury real estate platform and property advisory subsidiary of ICONOVOUS Holdings Limited. Designed around the ethos of "Where Luxury Meets Life With a Human Touch," Embasse bridges modern architectural elegance with high-touch, personalized real estate services for buying, selling, and renting high-end residential and commercial spaces.",
+    image: "/embasse-1.jpg",
+    imageAlt: "Embasse Properties preview",
+    visitLabel: "Visit Embasse Properties",
+    visitUrl: "https://biggest-scone-488480.framer.app/",
+    document: null,
+  },
+  {
     title: "Enterprise Cloud Operations",
     company: "Sample client product showcase",
     category: "Cloud & IT Operations",
@@ -108,6 +120,18 @@ const portfolioItems = [
     imageAlt: "Enterprise cloud operations concept preview",
     visitLabel: "Discuss a similar build",
     visitUrl: "/contact",
+    document: null,
+  },
+  {
+    title: "A Modern Global Religious Community",
+    company: "Adullam Ministries",
+    category: "Religious Organization / Global Church Community",
+    description:
+      "Adullam Ministries is a modern global community dedicated to authentic biblical truth, fellowship, and divine execution. Operating from Ede, Osun State, Nigeria, the ministry bridges timeless spiritual foundations with contemporary cultural excellence. It provides sound doctrinal teachings, intensive corporate intercession ("The War Room"), and practical kingdom strategies aimed at career development, financial intelligence, and market domination.",
+    image: "/adullam-2.jpg",
+    imageAlt: "Adullam Ministries preview",
+    visitLabel: "Visit Adullam Ministries",
+    visitUrl: "https://adullamministries.life/",
     document: null,
   },
   {
